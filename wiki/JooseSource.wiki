@@ -1,0 +1,3 @@
+#summary Joose SVN
+
+The can be checked out from http://code2.0beta.co.uk/moose/svn/Joose/trunk using anonymous SVN.
