@@ -28,7 +28,7 @@ Class("Point3D", {
 		}
 	}
 })
-||
+
 var point = new Point3D();
 }}}
 
