@@ -33,4 +33,15 @@ var point = new Point3D();
 
 = Description =
 
-This is the classic point example. In Joose classes are created using the {{{ Class() }}} function.
+This is the classic point example. In Joose classes are created using the {{{ Class() }}} function. The function takes two parameters: The class name and the class definition which is passed as an object literal (The stuff between the outermost {}).
+
+Classes are defined using an easy to read and easy to write declarative syntax. Keywords like "has", "methods" and "isa" are used to express the different aspects of the class.
+
+{{{
+has: {
+	x: {is: ro},
+	y: {is: rw},
+},
+}}}
+
+The first element of the declaration of the Point class is the has-block which defines two attributes of the Point class: x and y. The block {{{ x: {is: ro} }}} defines x as being read only. {{{ y: {is: rw} }}} defines x as being an read/write attribute. Joose will automatically create a getter {{{ getX }}} for x and a getter and setter {{{ setY }}} for y.
