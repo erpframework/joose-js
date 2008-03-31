@@ -47,7 +47,7 @@ has: {
 },
 }}}
 
-The first element of the declaration of the Point class is the has-block which defines two attributes of the Point class: x and y. The block {{{ x: {is: ro} }}} defines x as being read only. {{{ y: {is: rw} }}} defines x as being an read/write attribute. Joose will automatically create a getter {{{ getX }}} for x and a getter and setter {{{ setY }}} for y.
+The first element of the declaration of the Point class is the has-block which defines two attributes of the Point class: x and y. The block {{{ x: {is: ro} }}} defines x as being read only. {{{ y: {is: rw} }}} defines x as being an read/write attribute. Joose will automatically create a getter {{{ getX }}} for x and a getter and setter {{{ setY }}} for y. The names of the accessor methods are created using the camelCase conventions. The first letter of the attribute name is thus automatically uppercased.
 
 == Methods ==
 
