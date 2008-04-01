@@ -5,28 +5,28 @@
 
 {{{
 Class("Point", {
-	has: {
-		x: {is: ro},
-		y: {is: rw},
-	},
-	methods: {
-		clear: function () {
-			this.x = 0;
-			this.setY(0);
-		}
-	}
+    has: {
+        x: {is: ro},
+        y: {is: rw},
+    },
+    methods: {
+        clear: function () {
+            this.x = 0;
+            this.setY(0);
+        }
+    }
 })
 
 Class("Point3D", {
-	isa: Point,
-	has: {
-		z: {}
-	},
-	after: {
-		clear: function () {
-			this.z = 0;
-		}
-	}
+    isa: Point,
+    has: {
+        z: {}
+    },
+    after: {
+        clear: function () {
+            this.z = 0;
+        }
+    }
 })
 
 var point = new Point3D();
