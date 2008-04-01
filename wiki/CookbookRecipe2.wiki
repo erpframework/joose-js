@@ -2,7 +2,7 @@
 
 = Source = 
 
-
+{{{
 Module("Bank", function (m) {
 	Class("Account", {
 		has: {
@@ -45,5 +45,6 @@ Module("Bank", function (m) {
 		}
 	})
 })
+}}}
 
 = Description =
