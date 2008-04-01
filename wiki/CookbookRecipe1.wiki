@@ -1,4 +1,4 @@
-#summary Joose Cookbook Recipe 1
+#summary Point Example
 #labels Featured
 
 = Source =
