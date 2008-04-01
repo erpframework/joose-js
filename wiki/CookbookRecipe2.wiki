@@ -4,46 +4,46 @@
 
 {{{
 Module("Bank", function (m) {
-	Class("Account", {
-		has: {
-			balance: {
-				is: rw,
-				init: 0
-			}
-		},
-		methods: {
-			deposit: function (amount) {
-				this.setBalance(this.getBalance() + amount)
-			},
-			withdraw: function (amount) {
-				if(this.getBalance() < amount) {
-					throw "Account overdrawn"
-				}
-				this.setBalance(this.getBalance() - amount);
-				return this.getBalance();
-			}
-		}
-	});
-	
-	Class("CheckingAccount", {
-		isa: m.Account,
-		has: {
-			overdraftAccount: {
-				isa: m.Account,
-				is: rw
-			}
-		},
-		before: {
-			withdraw: function (amount) {
-				var overdraftAmount = amount - this.getBalance()
-				
-				if(this.overdraftAccount && overdraftAmount > 0) {
-				   this.overdraftAccount.withdraw(overdraftAmount);
-				   this.deposit(overdraftAmount);
-				}
-			}
-		}
-	})
+    Class("Account", {
+        has: {
+            balance: {
+                is: rw,
+                init: 0
+            }
+        },
+        methods: {
+            deposit: function (amount) {
+                this.setBalance(this.getBalance() + amount)
+            },
+            withdraw: function (amount) {
+                if(this.getBalance() < amount) {
+                    throw "Account overdrawn"
+                }
+                this.setBalance(this.getBalance() - amount);
+                return this.getBalance();
+            }
+        }
+    });
+    
+    Class("CheckingAccount", {
+        isa: m.Account,
+        has: {
+            overdraftAccount: {
+                isa: m.Account,
+                is: rw
+            }
+        },
+        before: {
+            withdraw: function (amount) {
+                var overdraftAmount = amount - this.getBalance()
+                
+                if(this.overdraftAccount && overdraftAmount > 0) {
+                   this.overdraftAccount.withdraw(overdraftAmount);
+                   this.deposit(overdraftAmount);
+                }
+            }
+        }
+    })
 })
 }}}
 
