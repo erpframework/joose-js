@@ -1,4 +1,5 @@
 #summary Bank Account Example
+#labels Featured
 
 = Source = 
 
@@ -92,3 +93,36 @@ before: {
 }}}
 
 Here we introduce another method modifier. The withdraw method is augmented with a before method which is called every time the withdraw method is called. It will beposit money from the savings account in the checkings account if the balance is not sufficient for the withdrawal.
+
+= override Method Modifier =
+
+Another possible implementation would be to use the override method modifier which allows to call the super class method using {{{ this.SUPER() }}}:
+
+{{{
+override: {
+    withdraw: function (amount) {
+        var overdraftAmount = amount - this.getBalance()
+                
+        if(this.overdraftAccount && overdraftAmount > 0) {                
+           this.overdraftAccount.withdraw(overdraftAmount);
+           this.deposit(overdraftAmount);
+        }
+        
+        this.SUPER(amount)
+    }
+}
+}}}
+
+The benefits of taking the method modifier approach is that the author of the BankAccount subclass does not need to remember to call this.SUPER() and to pass it the amount argument. Instead the method modifier ensures that all arguments make it to the superclass method correctly. But this is actually more than just a convenience for forgetful programmers, it also helps isolate subclasses from changes in the superclasses. For instance, if Bank.Account.withdraw were to add an additional argument of some kind, the version of CheckingAccount.withdraw which uses this.SUPER() would not pass that extra argument correctly, whereas the method modifier version would automatically pass along all arguments correctly.
+
+= Object Instantiation =
+
+All Joose obects receive a standard initializer that lets you initialize the objects using named arguments for the constructor:
+
+{{{
+var savingsAccount  = new Bank.Account({ balance: 100 });
+var checkingAccount = new Bank.CheckingAccount({ 
+    balance:          200, 
+    overdraftAccount: savingsAccount
+});
+}}}
