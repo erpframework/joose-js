@@ -75,3 +75,20 @@ has: {
 }}}
 
 Here we introduce a new attribute for the CheckingAccount class called overdraftAccount. Using the isa-keyword we put a type contraint on the attribute that is checked every time the setOverdratAccount-setter is used (which is created because we define the attribute as rw (read/write).
+
+= before Method Modifier = 
+
+{{{
+before: {
+    withdraw: function (amount) {
+        var overdraftAmount = amount - this.getBalance()
+				
+        if(this.overdraftAccount && overdraftAmount > 0) {
+            this.overdraftAccount.withdraw(overdraftAmount);
+            this.deposit(overdraftAmount);
+        }
+    }
+}
+}}}
+
+Here we introduce another method modifier. The withdraw method is augmented with a before method which is called every time the withdraw method is called. It will beposit money from the savings account in the checkings account if the balance is not sufficient for the withdrawal.
