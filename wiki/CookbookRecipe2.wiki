@@ -62,3 +62,16 @@ Module("Bank", function (m) {
 }}}
 
 The Module-function creates a namespace called "Bank". It takes a function as the second parameter in which we will create our banking classes. The function gets the module object as parameter, that we will later use for easy access to other classes of the namespace inside the Module.
+
+= Type Contraints =
+
+{{{
+has: {
+    overdraftAccount: {
+        isa: m.Account,
+        is: rw
+    }
+},
+}}}
+
+Here we introduce a new attribute for the CheckingAccount class called overdraftAccount. Using the isa-keyword we put a type contraint on the attribute that is checked every time the setOverdratAccount-setter is used (which is created because we define the attribute as rw (read/write).
