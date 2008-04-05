@@ -1,0 +1,85 @@
+#summary A lazy BinaryTree Example
+#labels Featured
+
+= Synopsis =
+
+Class("BinaryTree");
+
+Class("BinaryTree", {
+    has: {
+        node: {
+            is: rw
+        },
+        parent: {
+            is:        rw,
+            isa:       BinaryTree,
+            predicate: "hasParent"
+        },
+        left: {
+            is:        rw,
+            isa:       BinaryTree,
+            predicate: "hasLeft",
+            lazy:      true,
+            init:      function () { return new BinaryTree({ parent: this })}
+        },
+        right: {
+            is:        rw,
+            isa:       BinaryTree,
+            predicate: "hasRight",
+            lazy:      true,
+            init:      function () { return new BinaryTree({ parent: this })}
+        }
+    },
+    before: {
+        setLeft:  function (left)  { left.setParent(this) },
+        setRight: function (right) { right.setParent(this) },
+    }
+})
+
+= Description =
+
+In this recipe we take a closer look at attributes, and see how some of their more advanced features can be used to create fairly complex behaviors.
+
+The class in this recipe is a classic binary tree, each node in the tree is represented by an instance of the BinaryTree class. Each instance has a node slot to hold an arbitrary value, a right slot to hold the right node, a left slot to hold the left node, and finally a parent slot to hold a reference back up the tree.
+
+Now lets look at the code. The first thing that springs into view is the double declaration of the BinaryTree class
+{{{
+Class("BinaryTree");
+
+Class("BinaryTree", {
+}}}
+
+This is not a bug, but it allows us to refer to the BinaryTree class from within it's own declaration because it already exists at that point.
+
+== Predicates ==
+{{{
+parent: {
+    is:        rw,
+    isa:       BinaryTree,
+    predicate: "hasParent"
+},
+}}}
+
+As you already know, this code tells you that parent gets a read/write accessor (named {{{ getParent }}} and {{{ setParent }}}) and is constrained to only accept instances of BinaryTree. You will of course remember from the second recipe that the BinaryTree type constraint is automatically created for us by Joose.
+
+The next attribute option is new, though: the predicate option. This option creates a method which can be used to check whether a given slot (in this case parent) contains a defined value. In this case it will create a method called hasParent. Quite simple, and quite handy too.
+
+Now, onto the left and right attributes. They are essentially identical, save for different names, so I will just describe one here:
+
+== Lazy Attribute Initializers ==
+
+{{{
+left: {
+    is:        rw,
+    isa:       BinaryTree,
+    predicate: "hasLeft",
+    lazy:      true,
+    init:      function () { return new BinaryTree({ parent: this })}
+},
+}}}
+
+You already know what the is, isa and predicate options do, but now we have two new options. These two options are actually linked together, in fact: you cannot use the lazy option unless you have set the init option. Class creation will fail with an exception.
+
+Before I go into detail about how lazy works, let me first explain how init works, and in particular why it is wrapped in a function.
+
+In the second recipe the BankAccount's balance slot had a default value of 0. Since JavaScript will copy strings and numbers by value, this was all we had to say. But for any other item (Arrays, Objects, Functions, ...) you would need to wrap it in a function reference, so you actually get a new copy on each initialization.
