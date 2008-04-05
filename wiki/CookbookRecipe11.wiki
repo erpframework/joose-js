@@ -1,0 +1,150 @@
+#summary Attribute Meta Classes
+
+= Synopsis =
+
+{{{
+Module("MyApp.Meta.Attribute", function () {
+    Class("Labeled", {
+        isa: Joose.Attribute,
+        has: {
+            label: {
+                is: rw,
+                predicate: "hasLabel"
+            }
+        },
+        
+        after: {
+            handleProps: function () {
+                this.handleLabel()
+            }
+        },
+        
+        methods: {
+            handleLabel: function () {
+                var props = this.getProps();
+                
+                if(props.label != null) {
+                    this.setLabel(props.label)
+                }
+            }
+        }
+    })
+});
+
+Module("MyApp", function () {
+    Class("Website", {
+        has: {
+            url: {
+                metaclass: MyApp.Meta.Attribute.Labeled,
+                is: rw,
+                label: "The site's URL"
+            },
+            name: {
+                is: rw
+            }
+        },
+        methods: {
+            dump: function () {
+                var dumpValue = "";
+                
+                var attributes = this.meta.getAttributes();
+                
+                var me = this;
+                
+                Joose.O.each(attributes, function (attribute, name) {
+                    if(attribute.meta.isa(MyApp.Meta.Attribute.Labeled) && attribute.hasLabel()) {
+                        dumpValue += attribute.getLabel()
+                    } else {
+                        dumpValue += name;
+                    }
+                    
+                    var getter = attribute.getterName();
+                    dumpValue += ": " + me[getter]()+"; "
+                })
+                
+                return dumpValue
+                
+            }
+        }
+    })
+})
+
+var app = new MyApp.Website({ url: "http://www.google.com", name: "Google" });
+
+isEq(app.dump(), "The site's URL: http://www.google.com; name: Google; ", "Dump is correct")
+}}}
+
+= Summary =
+
+In this recipe, we begin to really delve into the wonder of meta-programming. Some readers may scoff and claim that this is the arena only of the most twisted Joose developers. Absolutely not! Any sufficiently twisted developer can benefit greatly from going more meta.
+
+The high-level goal of this recipe's code is to allow each attribute to have a human-readable "label" attached to it. Such labels would be used when showing data to an end user. In this recipe we label the "url" attribute with "The site's URL" and create a simple method to demonstrate how to use that label.
+
+= Real Attributes 101 =
+
+All the attributes of a Joose-based object are actually objects themselves. These objects have methods and (surprisingly) attributes. Let's look at a concrete example.
+
+{{{
+    has: {
+        x: {is: ro},
+        y: {is: rw},
+    },
+}}}
+
+Ahh, the veritable x and y of the Point example. Internally, every Point has an x object and a y object. They have methods (such as "getValue") and attributes (such as "isLazy"). What class are they instances of? Moose::Meta::Attribute. You don't normally see the objects lurking behind the scenes, because you usually just use point.x and point.y and forget that there's a lot of machinery lying in such methods.
+
+So you have a point object, which has x and y attributes. How can you actually access the objects behind these attributes? Here's one way:
+
+{{{point.meta.getAttributes()}}}
+
+returns an Object that maps attribute names to attribute objects.
+
+So to actually beef up attributes, what we need to do is:
+
+ * Create a new attribute metaclass
+ * Create attributes using that new metaclass
+
+Let's start dissecting the recipe's code.
+
+= Dissection =
+
+
+{{{
+Module("MyApp.Meta.Attribute", function () {
+    Class("Labeled", {
+        isa: Joose.Attribute,
+        
+        has: {
+            label: {
+                is: rw,
+                predicate: "hasLabel"
+            }
+        },
+
+}}}
+
+Here we create a class called Labeled in the MyApp.Meta.Attribute namespace that is inheriting to the attribute base class Joose.Attribute. Our new attributes will always have an attribute called label.
+
+{{{
+        after: {
+            handleProps: function () {
+                this.handleLabel()
+            }
+        },
+        
+        methods: {
+            handleLabel: function () {
+                var props = this.getProps();
+                
+                if(props.label != null) {
+                    this.setLabel(props.label)
+                }
+            }
+        }
+}}}
+
+When you declare an attribute using the has-keyword, you map a name to a property object.
+
+By creating an after method modifier for handleProps we can augment the attributes initialization process based on the property object. We we call the method handleLabel() which will the set the label-attribute of the attribute-object based on the label-key in the property object :)
+
+
