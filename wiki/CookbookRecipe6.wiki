@@ -1,0 +1,63 @@
+#summary The Role/Traits Example
+
+{{{
+Role("Eq", {
+    requires: "equalTo",
+    
+    methods: {
+        notEqualTo: function (other) {
+            return !this.equalTo(other)
+        }
+    }
+})
+
+Role("Comparable", {
+    requires: "compare",
+    does: Eq,
+    
+    methods: {
+        equalTo:     function (other) { return this.compare(other) == 0 },
+        greaterThan: function (other) { return this.compare(other) == 1 },
+        lessThan:    function (other) { return this.compare(other) == -1 },
+        
+        greaterThanOrEqualTo: function (other) {
+            return this.greaterThan(other) || this.equalTo(other)
+        },
+        
+        lessThanOrEqualTo: function (other) {
+            return this.lessThan(other) || this.equalTo(other)
+        }
+    }
+})
+
+Role("Printable", {
+    requires: "toString"
+})
+
+Module("US", function () {
+    Class("Currency", {
+        does: [Comparable, Printable],
+        
+        has:  {
+            amount: {
+                is: rw,
+                init: 0
+            }
+        },
+        
+        methods: {
+            compare: function (other) {
+                if(this.getAmount() == other.getAmount()) return 0
+                if(this.getAmount() >  other.getAmount()) return 1
+                return -1
+            },
+            
+            toString: function () {
+                return ""+this.getAmount()+" USD"
+            }
+        }
+        
+        
+    })
+})
+}}}
