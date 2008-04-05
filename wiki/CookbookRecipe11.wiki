@@ -1,4 +1,5 @@
 #summary Attribute Meta Classes
+#labels Featured
 
 = Synopsis =
 
