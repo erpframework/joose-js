@@ -71,7 +71,7 @@ Module("MyApp", function () {
 
 var app = new MyApp.Website({ url: "http://www.google.com", name: "Google" });
 
-isEq(app.dump(), "The site's URL: http://www.google.com; name: Google; ", "Dump is correct")
+app.dump();
 }}}
 
 = Summary =
@@ -211,25 +211,37 @@ Here we check whether the attribute is actually labeled. If it is, we append the
 }}}
 
 The getterName() method of the attribute returns the name of the getter method for the atrribute. *me* is a reference to the website (because this is changed in the iterating function). We call the getter method using the fetched name and append the value to the dumpValue
-                
+{{{              
                 return dumpValue
                 
             }
         }
 }}}
 
-                    if(attribute.meta.isa(MyApp.Meta.Attribute.Labeled) && attribute.hasLabel()) {
-                        dumpValue += attribute.getLabel()
-                    } else {
-                        dumpValue += name;
-                    }
-                    
-                    var getter = attribute.getterName();
-                    dumpValue += ": " + me[getter]()+"; "
-                })
-                
-                return dumpValue
-                
-            }
-        }
+And we wrap up the example with a script to show off our newfound magic.
+
+{{{
+var app = new MyApp.Website({ url: "http://www.google.com", name: "Google" });
+
+app.dump();
 }}}
+
+
+= Conclusion =
+
+Why oh why would you want to go through all of these contortions when you can just print "The site's URL" directly in the dump method? For one, the DRY (Don't Repeat Yourself) principle. If you have it in the dump method, you'll probably also have it in the asForm method, and toFile, and so on. So why not have a method that maps attribute names to labels? That could work, but why not include the label where it belongs, in the attribute's definition? That way you're also less likely to forget to add the label.
+
+More importantly, this was a very simple example. Your metaclasses aren't limited to just adding new meta-attributes. For example, you could implement a metaclass that expires attributes after a certain amount of time. You might use it as such:
+
+{{{
+    has: {
+        siteCache: 
+            metaclass:    TimedExpiry,
+            expiresAfter: { hours: 1 },
+            refreshWith:  function () { return AJAXRequest.fetch(this.getURL()) },
+            is:           'ro'
+        }
+    }
+}}}
+
+The sky's the limit!
