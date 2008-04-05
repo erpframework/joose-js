@@ -2,7 +2,7 @@
 #labels Featured
 
 = Synopsis =
-
+{{{
 Class("BinaryTree");
 
 Class("BinaryTree", {
@@ -35,7 +35,7 @@ Class("BinaryTree", {
         setRight: function (right) { right.setParent(this) },
     }
 })
-
+}}}
 = Description =
 
 In this recipe we take a closer look at attributes, and see how some of their more advanced features can be used to create fairly complex behaviors.
