@@ -147,4 +147,89 @@ When you declare an attribute using the has-keyword, you map a name to a propert
 
 By creating an after method modifier for handleProps we can augment the attributes initialization process based on the property object. We we call the method handleLabel() which will the set the label-attribute of the attribute-object based on the label-key in the property object :)
 
+== Using the new attribute meta class ==
 
+Note that we're done defining the new metaclass! Only a few of code, and not particularly difficult lines, either. Now to start using the metaclass.
+
+{{{
+Module("MyApp", function () {
+    Class("Website", {
+        has: {
+            url: {
+                metaclass: MyApp.Meta.Attribute.Labeled,
+                is: rw,
+                label: "The site's URL"
+            },
+            name: {
+                is: rw
+            }
+        },
+}}}
+
+Ah ha! Now we're using the metaclass. We're adding a new attribute, url, to MyApp.Website. {{{has}}} lets you set the metaclass of the attribute. Ordinarily (as we've seen), the metaclass is Joose.Attribute.
+
+Finally, we see that has is setting our new meta-attribute, label, to "The site's URL". We can access this meta-attribute with:
+{{{  website.meta.getAttribute('url')->getLabel() }}}
+
+Well, back to the code:
+{{{
+            name: {
+                is: rw
+            }
+}}}
+You don't have to use the meta class on *all* new attributes.
+
+Now we begin defining a method that will dump the MyApp.Website instance for human readers.
+
+{{{
+        methods: {
+            dump: function () {
+                var dumpValue = "";
+                
+                var attributes = this.meta.getAttributes();
+                
+                var me = this;
+                
+                Joose.O.each(attributes, function (attribute, name) {
+}}}
+
+The variable attributes now includes a map of all attributes of the website. {{{Joose.O.each()}}} is a utility function to interate over objects. The function in the second parameter will be invoked for each property of the map passing the attribute and the name.
+
+{{{
+                   if(attribute.meta.isa(MyApp.Meta.Attribute.Labeled) && attribute.hasLabel()) {
+                        dumpValue += attribute.getLabel()
+                    } else {
+                        dumpValue += name;
+                    }
+}}}
+
+Here we check whether the attribute is actually labeled. If it is, we append the actual label to the dumpValue instead of just the attribute name.
+{{{
+                    var getter = attribute.getterName();
+                    dumpValue += ": " + me[getter]()+"; "
+                })
+}}}
+
+The getterName() method of the attribute returns the name of the getter method for the atrribute. *me* is a reference to the website (because this is changed in the iterating function). We call the getter method using the fetched name and append the value to the dumpValue
+                
+                return dumpValue
+                
+            }
+        }
+}}}
+
+                    if(attribute.meta.isa(MyApp.Meta.Attribute.Labeled) && attribute.hasLabel()) {
+                        dumpValue += attribute.getLabel()
+                    } else {
+                        dumpValue += name;
+                    }
+                    
+                    var getter = attribute.getterName();
+                    dumpValue += ": " + me[getter]()+"; "
+                })
+                
+                return dumpValue
+                
+            }
+        }
+}}}
