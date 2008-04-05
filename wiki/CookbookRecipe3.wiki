@@ -108,3 +108,8 @@ before: {
 These are before modifiers, just like we saw in the second recipe, but with one slight difference. We are not wrapping an inherited method anymore, but instead a method of our own local class. Wrapping local methods is no different, the only requirement is that the wrappee be created before the wrapper (after all, you cannot wrap something which doesn't exist, right?).
 
 Now, as with all the other recipes, you can go about using BinaryTree like any other JavaScript class. A more detailed example of its usage can be found in tests/cookbook/03_recipe3_tree.js
+
+
+= Credits =
+
+This cookbook entry is based on [http://search.cpan.org/~stevan/Moose-0.40/lib/Moose/Cookbook/Recipe3.pod Stevan's entry for Moose]. Thank you so much!
