@@ -126,3 +126,7 @@ var checkingAccount = new Bank.CheckingAccount({
     overdraftAccount: savingsAccount
 });
 }}}
+
+= Credits =
+
+This cookbook entry is based on [http://search.cpan.org/~stevan/Moose-0.40/lib/Moose/Cookbook/Recipe2.pod Stevan's entry for Moose]. Thank you so much!
