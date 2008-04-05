@@ -67,11 +67,15 @@ var tpsReport = new TPSReport();
 
 tpsReport.create()
 
-var body =tpsReport.getBody()
+var body = tpsReport.getBody()
 
 // body now has the value: '<page><header/><report type="tps"/><footer/></page>'
 
 }}}
+
+= Description = 
+
+Coming Soon, for now look for the calls to this.INNER() in the example.
 
 = Credits =
 
