@@ -1,7 +1,9 @@
 #summary The augment/inner example
+#labels Featured
 
 = Synopsis =
 
+{{{
 Module("Page", function (m) {
     Class("Document", {
         has: {
@@ -68,3 +70,9 @@ tpsReport.create()
 var body =tpsReport.getBody()
 
 // body now has the value: '<page><header/><report type="tps"/><footer/></page>'
+
+}}}
+
+= Credits =
+
+This cookbook entry is based on [http://search.cpan.org/~stevan/Moose-0.40/lib/Moose/Cookbook/Recipe7.pod Stevan's entry for Moose]. Thank you so much!
