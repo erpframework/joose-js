@@ -83,3 +83,7 @@ after: {
 }}}
 
 Joose supports so-called method modifiers. _after_ is just one of 5 method modifierst that declare methods with special behavior. The after-modifier defines methods which will be called after methods with the same name which are defined in the super class.
+
+= Credits =
+
+This cookbook entry is based on [http://search.cpan.org/~stevan/Moose-0.40/lib/Moose/Cookbook/Recipe1.pod Stevan's entry for Moose]. Thank you so much!
