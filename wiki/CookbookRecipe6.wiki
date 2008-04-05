@@ -1,4 +1,5 @@
 #summary The Role/Traits Example
+#labels Featured
 
 {{{
 Role("Eq", {
@@ -136,3 +137,8 @@ We end the class with a definition of the to_string method, which formats the am
 = Conclusion = 
 
 This recipe has shown that roles can be very powerful and immensely useful, and save a great deal of repetition.
+
+
+= Credits =
+
+This cookbook entry is based on [http://search.cpan.org/~stevan/Moose-0.40/lib/Moose/Cookbook/Recipe6.pod Stevan's entry for Moose]. Thank you so much!
