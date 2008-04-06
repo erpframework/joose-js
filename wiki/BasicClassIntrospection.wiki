@@ -2,8 +2,7 @@
 
 = Introduction =
 
-All Joose classes, roles, prototypes, modules, objects, methods and attributes
-have a special property called *meta* that allows introspection and runtime extention of the _thing_.
+Joose allows easy probing, introspection and extention of classes and their objects.
 
 == Introspection ==
 
