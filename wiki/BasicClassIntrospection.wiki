@@ -124,4 +124,18 @@ Existing attributes will be replaced, but their values will stay intact.
 
 Make _classObject_ a super class of the class and all instances. This will not override any existing methods or attributes.
 
-== Method: addSuperClass()
+----
+
+= Instance Extention =
+
+== detach ==
+
+You may at any time detach an instance from its class by calling _detach()_ directly on the instance. The instance now has its own meta object. Calling methods on this meta object will not have any effect ony the former class of the instance.
+
+{{{instance.detach}}}
+
+== instane role applicaton ==
+
+You may also apply a role to an instance. This will automatically detach the instance from its class.
+
+{{{Role.meta.apply(anInstance)}}}
