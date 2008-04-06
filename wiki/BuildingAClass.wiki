@@ -1,0 +1,53 @@
+#summary Building a Class
+
+= Synopsis =
+{{{
+// Create a class called Point
+Class("Point", {
+    has: {
+        x: {
+        	is:   "rw",
+        	init: 0
+       	},
+        y: {
+        	is:   "rw",
+        	init: 0
+        }
+    },
+    methods: {
+        clear: function () {
+            this.setX(0);
+            this.setY(0);
+        }
+    }
+})
+
+// Use the class
+var point = new Point();
+point.setX(10)
+point.setY(20);
+point.clear();
+}}}
+
+= Class(name, properties) =
+
+The global function *Class(name, properties)* creates a class with the given name. The class is initialized using the properties:
+ * isa: Inherits from a super class
+ * does: 
+ * has: Creates attributes
+ * methods: Creates instance methods
+ * classMethods: Creates class methods
+
+== Object Initialization ==
+
+Joose will automatically add an initialize method for your classto your class, that allows initialization of new instance like this:
+{{{ var point = new Point({ x: 10, y: 10 }) }}}
+
+== isa ==
+
+Using the isa-keyword you can inherit from other classes:
+{{{
+Class("Car", {
+	isa: Vehicle
+})
+}}}
