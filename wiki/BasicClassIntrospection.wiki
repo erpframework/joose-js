@@ -9,6 +9,8 @@ All Joose objects have a property called meta that can be used to access the obj
 
 == Method: can(methodName) ==
 
+Returns true if there is an instance method called _methodName_
+
 {{{
 // Query whether a instances of MyClass could execute a method called methodName
 MyClass.meta.can(methodName)
@@ -16,16 +18,14 @@ MyClass.meta.can(methodName)
 myObject.meta.can(methodName)
 }}}
 
-Returns true if there is an instance method called _methodName_
-
 == Method: classCan(methodName) ==
+
+Returns true if there is a class method called _methodName_
 
 {{{
 // Query whether MyClass could execute a method called methodName
 MyClass.meta.classCan(methodName)
 }}}
-
-Returns true if there is a class method called _methodName_
 
 == Method: isa(classObject) ==
 
@@ -40,13 +40,14 @@ myObject.meta.isa(SuperClass)
 
 == Method: does(role) ==
 
+Returns true if the object or class implements the _role_.
+
 {{{
 // Query whether MyClass implements the role MyRole
 MyClass.meta.does(MyRole)
 // Query whether myObject implements the role MyRole
 myObject.meta.does(MyRole)
-
-Returns true if the object or class implements the _role_.
+}}}
 
 
 == Method: instantiate(optionalParameters) ==
