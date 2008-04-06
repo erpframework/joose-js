@@ -88,6 +88,14 @@ This method returns a map of attribute names and [JooseAttribute attributes obje
 
 Returns the class object that is represented by the meta object.
 
+== Method: getInstanceMethods() ==
+
+Returns an array of [JooseMethod instance method objects.]
+
+== Method: getClassMethods() ==
+
+Returns an array of [JooseClassMethod class method objects.]
+
 ----
 
 = Class Extention =
