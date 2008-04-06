@@ -109,6 +109,19 @@ Using the methods-keyword you may add instance methods to your class.
 
 This will add the methods clear() and stringify() to your class. If you provide your own stringify method, you objects will stringify to its return value.
 
+=== classMethods ===
+
+The classMethods-keywords works similar to the methods keyword, but you will be able to call the methods on the class instead of the instance.
+{{{
+    classMethods: {
+        makeNew: function () {
+            return new Point()
+        }
+    }
+}}}
+
+This will add the method makeNew to the Point class object and lets you call {{{Point.makeNew()}}} to make new points.
+
 == Object Initialization ==
 
 Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
