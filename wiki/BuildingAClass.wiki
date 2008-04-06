@@ -8,7 +8,7 @@ Class("Point", {
         x: {
             is:   "rw",
             init: 0
-           },
+        },
         y: {
             is:   "rw",
             init: 0
@@ -60,6 +60,34 @@ Class("Integer", {
 You may apply multiple roles to the class by passing an array of roles.
 
 See also: [BuildingARole Building a Role]
+
+=== has ===
+
+Using the has-keyword, you can add attributes to your class. Joose supports very powerful attribute features, by using attribute properties. The basic attribute properties are:
+ * is: tells Joose whether the attribute is writable
+ * init: provides an initialization value
+
+{{{
+Class("TestClass", {
+    has: {
+        foo: {
+            is:   "rw",
+            init: 0
+        },
+        bar: {
+            is:   "ro",
+            init: 0
+        }
+    }
+}
+}}}
+
+By declaring an attribute as "rw" (short for read/write) you tell Joose to generate getter and setter methods for you. For the above example, there will be called:
+ * getFoo()
+ * setFoo()
+ * getBar()
+
+There is no setBar, because bar was declared as "ro" for read-only.
 
 == Object Initialization ==
 
