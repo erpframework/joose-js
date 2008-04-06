@@ -27,10 +27,12 @@ MyClass.meta.classCan(methodName)
 
 Returns true if there is a class method called methodName
 
-=== Method: does(Role) ===
+=== Method: does(role) ===
 
 {{{
 // Query whether MyClass implements the role MyRole
 MyClass.meta.does(MyRole)
 // Query whether myObject implements the role MyRole
 myObject.meta.does(MyRole)
+
+Returns true if the thing implements the role.
