@@ -6,6 +6,7 @@ Joose allows easy probing, introspection and extention of classes and their obje
 
 All Joose objects have a property called meta that can be used to access the object's meta object. Classes and their instances share the same meta object and thus have the same meta interface.
 
+----
 
 = Probing =
 
@@ -52,6 +53,8 @@ MyClass.meta.does(MyRole)
 myObject.meta.does(MyRole)
 }}}
 
+----
+
 = Instance Creation =
 
 == Method: instantiate(optionalParameters) ==
@@ -64,13 +67,18 @@ var object2 = object1.meta.instantiate()
 }}}
 
 
+----
+
+
 = Introspection =
 
 == Method: getClassObject() ==
 
 Returns the class object that is represented by the meta object.
 
-= Extention =
+----
+
+= Class Extention =
 
 == Method: addMethod(name, function, properties) ==
 
