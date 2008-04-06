@@ -15,3 +15,22 @@ MyClass.meta.can(methodName)
 // Query whether an instance could execute a method called methodName
 myObject.meta.can(methodName)
 }}}
+
+Returns true if there is an instance method called methodName
+
+=== Method: classCan(methodName) ===
+
+{{{
+// Query whether MyClass could execute a method called methodName
+MyClass.meta.classCan(methodName)
+}}}
+
+Returns true if there is a class method called methodName
+
+=== Method: does(Role) ===
+
+{{{
+// Query whether MyClass implements the role MyRole
+MyClass.meta.does(MyRole)
+// Query whether myObject implements the role MyRole
+myObject.meta.does(MyRole)
