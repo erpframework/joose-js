@@ -4,7 +4,7 @@
 
 Joose allows easy probing, introspection and extention of classes and their objects.
 
-All Joose objects have a property called meta that can be used to access the object's meta object. Classes and their instances share the same meta object and thus have the same meta interface.
+All Joose objects have a property called meta that can be used to access the object's meta object. Classes and their instances share the same meta object and thus have the same meta interface. All method's decribed on this page may be called on the meta object of classes and instances. Unless you use [BuildingAPrototype Prototypes] they will always affect the class as well as all instances.
 
 ----
 
@@ -90,11 +90,19 @@ Returns the class object that is represented by the meta object.
 
 == Method: getInstanceMethods() ==
 
-Returns an array of [JooseMethod instance method objects.]
+Returns an array of [JooseMethod instance method objects] with all instance methods of the class (including methods from super classes).
 
 == Method: getClassMethods() ==
 
-Returns an array of [JooseClassMethod class method objects.]
+Returns an array of [JooseClassMethod class method objects] with all class methods of the class (including methods from super classes).
+
+== Method: getSuperClasses() ==
+
+Returns an array of all direct super classes of the class.
+
+== Method: getRoles() ==
+
+Returns and array of all roles that the class implements.
 
 ----
 
