@@ -29,7 +29,14 @@ Returns true if there is a class method called _methodName_
 
 == Method: isa(classObject) ==
 
-Returns true if the object or class is of the same class or a sub class of _classObject_
+Returns true if the object or class is of the same class or a sub class of _classObject_.
+
+{{{
+// Query whether MyClass is a subclass of SuperClass
+MyClass.meta.isa(SuperClass)
+// Query whether the class of myObject is a subclass of SuperClass
+myObject.meta.isa(SuperClass)
+}}}
 
 == Method: does(role) ==
 
@@ -55,4 +62,3 @@ var object2 = object1.meta.instantiate()
 == Method: getClassObject() ==
 
 Returns the class object that is represented by the meta object.
-
