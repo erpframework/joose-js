@@ -4,9 +4,10 @@
 
 Joose allows easy probing, introspection and extention of classes and their objects.
 
-== Introspection ==
+All Joose objects have a property called meta that can be used to access the object's meta object. Classes and their instances share the same meta object and thus have the same meta interface.
 
-=== Method: can(methodName) ===
+
+== Method: can(methodName) ==
 
 {{{
 // Query whether a instances of MyClass could execute a method called methodName
@@ -15,18 +16,22 @@ MyClass.meta.can(methodName)
 myObject.meta.can(methodName)
 }}}
 
-Returns true if there is an instance method called methodName
+Returns true if there is an instance method called _methodName_
 
-=== Method: classCan(methodName) ===
+== Method: classCan(methodName) ==
 
 {{{
 // Query whether MyClass could execute a method called methodName
 MyClass.meta.classCan(methodName)
 }}}
 
-Returns true if there is a class method called methodName
+Returns true if there is a class method called _methodName_
 
-=== Method: does(role) ===
+== Method: isa(classObject) ==
+
+Returns true if the object or class is of the same class or a sub class of _classObject_
+
+== Method: does(role) ==
 
 {{{
 // Query whether MyClass implements the role MyRole
@@ -34,4 +39,20 @@ MyClass.meta.does(MyRole)
 // Query whether myObject implements the role MyRole
 myObject.meta.does(MyRole)
 
-Returns true if the thing implements the role.
+Returns true if the object or class implements the _role_.
+
+
+== Method: instantiate(optionalParameters) ==
+
+This is an alternative way to create new instances of a class. The _optionalParameters_ will be passed to the initializer of the class.
+
+{{{
+var object1 = MyClass.meta.instantiate()
+var object2 = object1.meta.instantiate()
+}}}
+
+
+== Method: getClassObject() ==
+
+Returns the class object that is represented by the meta object.
+
