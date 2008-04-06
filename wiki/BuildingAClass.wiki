@@ -170,3 +170,5 @@ The augment method modifier is like override but the other way around. The most-
 
 Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
 {{{ var point = new Point({ x: 10, y: 10 }) }}}
+
+If you add your own initialize method to your class the parameters which are passed to a constructor will be passed to the initialize method.
