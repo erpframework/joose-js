@@ -6,12 +6,12 @@
 Class("Point", {
     has: {
         x: {
-        	is:   "rw",
-        	init: 0
-       	},
+            is:   "rw",
+            init: 0
+           },
         y: {
-        	is:   "rw",
-        	init: 0
+            is:   "rw",
+            init: 0
         }
     },
     methods: {
@@ -33,21 +33,35 @@ point.clear();
 
 The global function *Class(name, properties)* creates a class with the given name. The class is initialized using the properties:
  * isa: Inherits from a super class
- * does: 
+ * does: Applies roles to the class
  * has: Creates attributes
  * methods: Creates instance methods
  * classMethods: Creates class methods
 
-== Object Initialization ==
+== Class Initialization Properties ==
 
-Joose will automatically add an initialize method for your classto your class, that allows initialization of new instance like this:
-{{{ var point = new Point({ x: 10, y: 10 }) }}}
-
-== isa ==
+=== isa ===
 
 Using the isa-keyword you can inherit from other classes:
 {{{
 Class("Car", {
-	isa: Vehicle
+    isa: Vehicle
 })
 }}}
+
+=== does ===
+
+Using the does-keyword you can apply roles (which are sometimes also called traits and which do something similar to mixins) to the class:
+{{{
+Class("Integer", {
+    does: Comparable
+})
+}}}
+You may apply multiple roles to the class by passing an array of roles.
+
+See also: [BuildingARole Building a Role]
+
+== Object Initialization ==
+
+Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
+{{{ var point = new Point({ x: 10, y: 10 }) }}}
