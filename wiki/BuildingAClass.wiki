@@ -37,6 +37,7 @@ The global function *Class(name, properties)* creates a class with the given nam
  * has: Creates attributes
  * methods: Creates instance methods
  * classMethods: Creates class methods
+ * method-modifiers: before, after, around, override, augment
 
 == Class Initialization Properties ==
 
@@ -121,6 +122,22 @@ The classMethods-keywords works similar to the methods keyword, but you will be 
 }}}
 
 This will add the method makeNew to the Point class object and lets you call {{{Point.makeNew()}}} to make new points.
+
+=== Method Modifiers ===
+
+Method modifiers allow wrapping of already defined methods. See for example [CookbookRecipe2]
+
+==== before ====
+
+Methods declared as "before" will be called before the overridden method.
+
+{{{
+    before: {
+        add: function () { this.result += "3" }
+    }
+}}}
+
+
 
 == Object Initialization ==
 
