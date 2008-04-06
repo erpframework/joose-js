@@ -76,6 +76,16 @@ Returns the class object that is represented by the meta object.
 
 This method will add a method of name _name_ with the function body _function_ to the class and all instances. The _properties_ will be passed to the method metaclass (currently none are supported.
 
+Existing methods will be replaced.
+
 == Method: addAttribute(name, properties) ==
 
-This will add an attribute of name _name_ to the class and all instances. The _properties_ are the same which are passed to the has-keyword during [BuildAClass class-building]
+This will add an attribute of name _name_ to the class and all instances. The _properties_ are the same which are passed to the has-keyword during [BuildingAClass class-building].
+
+Existing attributes will be replaced, but their values will stay intact. 
+
+== Method: addSuperClass(classObject) ==
+
+Make _classObject_ a super class of the class and all instances. This will not override any existing methods or attributes.
+
+== Method: addSuperClass()
