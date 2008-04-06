@@ -4,3 +4,14 @@
 
 All Joose classes, roles, prototypes, modules, objects, methods and attributes
 have a special property called *meta* that allows introspection and runtime extention of the _thing_.
+
+== Introspection ==
+
+=== Method: can(methodName) ===
+
+{{{
+// Query whether a instances of MyClass could execute a method called methodName
+MyClass.meta.can(methodName)
+// Query whether an instance could execute a method called methodName
+myObject.meta.can(methodName)
+}}}
