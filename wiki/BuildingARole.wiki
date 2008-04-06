@@ -32,7 +32,7 @@ Class("Currency", {
 
 Roles are units of reusable behavior. You can also think of them as Java-interfaces on steroids. Classes and other roles declare that they implement a role using the does-keyword. When something does a role, it receives all the methods implemented by the class. If the implementing class already has a method of the same name, it will not be overidden.
 
-For more info see CookobookRecipe6.
+For more info see CookbookRecipe6.
 
 == requires: methodName or Array of methodNames ==
 
