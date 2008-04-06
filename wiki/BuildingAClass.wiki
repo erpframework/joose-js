@@ -52,6 +52,8 @@ Class("Car", {
 
 In the above example Car will inherit all methods and attributes from the class Vehicle.
 
+There is currently no easy way to do multiple inheritance and mi is not officially supported. If you want to shoot yourself in the foot, please use the meta programming interface :)
+
 === does ===
 
 Using the does-keyword you can apply roles (which are sometimes also called traits and which do something similar to mixins) to the class:
