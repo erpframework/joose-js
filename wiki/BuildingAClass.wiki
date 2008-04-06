@@ -129,7 +129,7 @@ Method modifiers allow wrapping of already defined methods. See for example [Coo
 
 ==== before ====
 
-Methods declared as "before" will be called before the overridden method.
+Methods declared as "before" will be called before the overridden method. The return value will be discarded.
 
 {{{
     before: {
@@ -137,7 +137,34 @@ Methods declared as "before" will be called before the overridden method.
     }
 }}}
 
+==== after ==== 
 
+Methods declared as "after" will be called after the overridden method. The return value will be discarded.
+
+==== around ====
+
+Methods declared as around will receive the overridden method as the first parameter.
+
+==== override ====
+
+The override method modifier is very powerful because it allows overiding of methods of super classes with the ability to call the super class method by calling {{{this.SUPER()}}}, This is normally not possible in JavaScript.
+
+{{{
+    override: {
+        one: function () { 
+            this.result1 += "2"
+            this.SUPER();
+        },
+        two: function () { 
+            this.result2 += "2"
+            this.SUPER();
+        }
+    }
+}}}
+
+==== augment ====
+
+The augment method modifier is like override but the other way around. The most-super method will be called first, but it can call method of the sub class using {{{ this.INNER() }}}. For an example, see CookbookRecipe11.
 
 == Object Initialization ==
 
