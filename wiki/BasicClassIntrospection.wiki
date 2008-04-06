@@ -74,7 +74,15 @@ var object2 = object1.meta.instantiate()
 
 == Method: getMethodObject(methodName) ==
 
-This will return the method of name _methodName_ if it exist. The returned method object will be of the type [Joose.Method]
+This method will return the method of name _methodName_ if it exists. The returned method object will be of the type [JooseMethod Joose.Method].
+
+== Method: getAttribute(attrName) ==
+
+This method will return the attribute of name _attrName_ if it exists. The returned attribute object will be of the type [JooseAttribute Joose.Attribute].
+
+== Method: getAttributes() ===
+
+This method returns a map of attribute names and [JooseAttribute attributes objects].
 
 == Method: getClassObject() ==
 
