@@ -164,7 +164,7 @@ The override method modifier is very powerful because it allows overiding of met
 
 ==== augment ====
 
-The augment method modifier is like override but the other way around. The most-super method will be called first, but it can call method of the sub class using {{{ this.INNER() }}}. For an example, see CookbookRecipe11.
+The augment method modifier is like override but the other way around. The most-super method will be called first, but it can call method of the sub class using {{{ this.INNER() }}}. For an example, see CookbookRecipe7.
 
 == Object Initialization ==
 
