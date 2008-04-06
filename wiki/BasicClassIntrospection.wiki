@@ -72,6 +72,10 @@ var object2 = object1.meta.instantiate()
 
 = Introspection =
 
+== Method: getMethodObject(methodName) ==
+
+This will return the method of name _methodName_ if it exist. The returned method object will be of the type [Joose.Method]
+
 == Method: getClassObject() ==
 
 Returns the class object that is represented by the meta object.
