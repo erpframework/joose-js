@@ -49,6 +49,8 @@ Class("Car", {
 })
 }}}
 
+In the above example Car will inherit all methods and attributes from the class Vehicle.
+
 === does ===
 
 Using the does-keyword you can apply roles (which are sometimes also called traits and which do something similar to mixins) to the class:
@@ -88,6 +90,24 @@ By declaring an attribute as "rw" (short for read/write) you tell Joose to gener
  * getBar()
 
 There is no setBar, because bar was declared as "ro" for read-only.
+
+=== methods ===
+
+Using the methods-keyword you may add instance methods to your class.
+
+{{{
+    methods: {
+        clear: function () {
+            this.setX(0);
+            this.setY(0);
+        },
+        stringify: function () {
+            return ""+this.getX()+","+this.getY()
+        }
+    }
+}}}
+
+This will add the methods clear() and stringify() to your class. If you provide your own stringify method, you objects will stringify to its return value.
 
 == Object Initialization ==
 
