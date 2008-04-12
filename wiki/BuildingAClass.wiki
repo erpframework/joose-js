@@ -52,7 +52,7 @@ Class("Car", {
 
 In the above example Car will inherit all methods and attributes from the class Vehicle.
 
-There is currently no easy way to do multiple inheritance and mi is not officially supported. If you want to shoot yourself in the foot, please use the meta programming interface :)
+There is currently no easy way to do multiple inheritance and MI is not officially supported. If you want to shoot yourself in the foot, please use the meta programming interface :)
 
 === does ===
 
@@ -149,7 +149,7 @@ Methods declared as around will receive the overridden method as the first param
 
 ==== override ====
 
-The override method modifier is very powerful because it allows overiding of methods of super classes with the ability to call the super class method by calling {{{this.SUPER()}}}, This is normally not possible in JavaScript.
+The override method modifier is very powerful because it allows overiding of methods of super classes with the ability to call the method of the super class by calling {{{this.SUPER()}}}. This is otherwise not possible in JavaScript.
 
 {{{
     override: {
