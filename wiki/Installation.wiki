@@ -7,7 +7,7 @@ and include it in your html pages with
 {{{
 <script type="text/javascript" src="/path/to/joose.js"></script>
 }}}
-The file joose.mini.js is the same as the file joose.js. The only difference is
+The file _joose.mini.js_ is the same as the file _joose.js_. The only difference is
 removed white space and comments which reduces the file size and improves page
 loading time. We recommend using joose.js in development and joose.mini.js in
 production systems.
