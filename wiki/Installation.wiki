@@ -1,6 +1,6 @@
 #summary Installation instructions for Joose
 
-Download the latest release of Joose from the [Downloads downloads Page]
+Download the latest release of Joose from the [http://code.google.com/p/joose-js/downloads/list downloads Page]
 
 Copy the file joose.js or joose.mini.js to your application's JavaScript directory
 and include it in your html pages with
