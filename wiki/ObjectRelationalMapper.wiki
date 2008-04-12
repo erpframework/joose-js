@@ -4,6 +4,7 @@ To run this example you need to install [http://gears.google.com/ Google Gears]
 
 This example will run the test suite of the example and then display a class browser. This class browser shows the contents of the underlying tables for those classes that represent a table. (These classes live in the _MyEntities_ module)
 
+= Run the example =
 To tun the example [http://it.test.avantaxx.de/xssinterface/projects/Joose/examples/simple_orm.html click here].
 
 = Code =
