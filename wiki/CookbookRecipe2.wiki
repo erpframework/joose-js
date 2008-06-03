@@ -113,7 +113,6 @@ override: {
 }
 }}}
 
-The benefits of taking the method modifier approach is that the author of the BankAccount subclass does not need to remember to call this.SUPER() and to pass it the amount argument. Instead the method modifier ensures that all arguments make it to the superclass method correctly. But this is actually more than just a convenience for forgetful programmers, it also helps isolate subclasses from changes in the superclasses. For instance, if Bank.Account.withdraw were to add an additional argument of some kind, the version of CheckingAccount.withdraw which uses this.SUPER() would not pass that extra argument correctly, whereas the method modifier version would automatically pass along all arguments correctly.
 
 = Object Instantiation =
 
