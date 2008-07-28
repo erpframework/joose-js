@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This page gives some hints on where to go after you downloaded and [installed Installation] Joose.
+This page gives some hints on where to go after you downloaded and [Installation installed] Joose.
 
 = Steps to mastering Joose =
 
