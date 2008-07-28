@@ -1,6 +1,61 @@
 #summary This page shows JavaScript code before and after Joose was applied
 
-|| test || test ||
-|| bla 
- dfas
-dsfa|| bla ||
+= The Point class =
+
+A simple class with two attributes (x and y) using the namespace Test
+
+= Before Joose =
+{{{
+// No Joose
+if(Test == null) {
+    Test = {};
+}
+
+Test.StandardPoint = function (x, y) {
+    this.x = x || 0
+    this.y = y || 0
+}
+
+Test.StandardPoint.prototype = {
+    getX: function () {
+        return this.x
+    },
+    setX: function (x) {
+        this.x = x
+    },
+    getY: function () {
+        return this.y
+    },
+    setY: function (y) {
+        this.y = y;
+    },
+    clear: function () {
+        this.setX(0)
+        this.setY(0)
+    }
+}
+}}}
+
+== After Joose ==
+{{{
+Module("Test", function (m) {
+    Class("Point", {
+        has: {
+            x: {
+                is:   "rw",
+                init: 0
+            },
+            y: {
+                is:   "rw",
+                init: 0
+            }
+        },
+        methods: {
+            clear: function () {
+                this.setX(0);
+                this.setY(0);
+            }
+        }
+    })
+})
+}}}
