@@ -1,0 +1,2 @@
+#summary This page shows JavaScript code before and after Joose was applied
+
