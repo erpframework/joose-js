@@ -1,0 +1,3 @@
+#summary Interesting blog articles about aspects of Joose
+
+ * [http://joose-js.blogspot.com/2008/07/class-extention-with-roles-and-method.html Class extention with roles and method modifiers]
