@@ -1,9 +1,13 @@
 #summary Installation instructions for Joose
 
-Download the latest release of Joose from the [http://code.google.com/p/joose-js/downloads/list downloads page]
+= Download =
+
+Download the latest release of Joose from the [http://code.google.com/p/joose-js/downloads/list downloads page]. We currently only upload stable releases, so you can just grap the latest and greatest.
+
+= Include = 
 
 Copy the file joose.js or joose.mini.js to your application's JavaScript directory
-and include it in your html pages with
+and include it in your html pages with something like:
 {{{
 <script type="text/javascript" src="/path/to/joose.js"></script>
 }}}
@@ -11,6 +15,11 @@ The file _joose.mini.js_ is the same as the file _joose.js_. The only difference
 removed white space and comments which reduces the file size and improves page
 loading time. We recommend using joose.js in development and joose.mini.js in
 production systems.
+There also extra files whithe the .gz extention. These are packed for even smaller file sizes. If your web-server supports using these compressed files, it will improve load time even more.
 
 For some functionality you will also need the JavaScript JSON library
 which you can obtain [http://www.json.org/js.html JSON.org]
+
+= Where to go next =
+
+Read the [GettingStartedGuide Getting started Guide]
