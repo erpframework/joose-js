@@ -1,0 +1,11 @@
+#summary This page describes how Joose behaves in conjunction with other frameworks
+
+= Introduction =
+
+The Joose object system makes writing object-oriented code in JavaScript more productive. It is not a general purpose JavaScript framework. 
+Joose
+ * has no methods to traverse or manipulate the DOM
+ * does not enforce a particular component framework
+ * could run in any JavaScript environment (not just the browser, but also on the server side or within Flash (as ActionScript))
+
+= Using Joose with another JavaScript framework =
