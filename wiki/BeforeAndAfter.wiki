@@ -1,4 +1,4 @@
 #summary This page shows JavaScript code before and after Joose was applied
 
-|| test || test
-|| bla  || bla
+|| test || test ||
+|| bla  || bla ||
