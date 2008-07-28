@@ -9,3 +9,19 @@ Joose
  * could run in any JavaScript environment (not just the browser, but also on the server side or within Flash (as ActionScript))
 
 = Using Joose with another JavaScript framework =
+
+Joose should work very Well with other JavaScript frameworks. It does however reserve some global function that should not be used by the other framework. These are:
+ * Joose :)
+ * Class
+ * Module
+ * Role
+ * Prototype
+ * joosify
+
+= Tests =
+
+Joose has been thoroughly tested in conjuction with
+ * [http://jquery.com/ jQuery]
+
+If you are using Joose with another framework like Dojo, Prototype, Ext or Mootools, please tell us.
+ 
