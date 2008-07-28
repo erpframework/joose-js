@@ -10,3 +10,4 @@ This page gives some hints on where to go after you downloaded and [Installation
  # Try out the class browser example. You can try it [http://it.test.avantaxx.de/xssinterface/projects/Joose/examples/class_browser.html online] or open the file examples/class_browser.html from the Joose download in your web browser.
  # If you want to know more about the stuff you can do when you are building a class, read the [BuildingAClass documentation]
  # Read about Joose's [BasicClassIntrospection basic meta introspection interface] that let's you look into your objects and classes at runtime.
+ # Ask for help on the [http://groups.google.com/group/joose-js mailing list]
