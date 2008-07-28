@@ -1,0 +1,5 @@
+#summary Getting help and discussing Joose
+
+You are invited to
+ * join our [http://groups.google.com/group/joose-js dicussion group]
+ * or send a Mail to malte: malte.ubl@gmail.com
