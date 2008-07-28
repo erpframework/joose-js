@@ -1,4 +1,4 @@
-#summary Important sites talk about Joose
+#summary Independent voices about Joose
 
  * [http://ajaxian.com/archives/joose-expands-with-new-orm Joose on Ajaxian]
  * [http://gearsblog.blogspot.com/2008/03/joosegears-adding-support-for-workers.html Joose on the Google Gears blog]
