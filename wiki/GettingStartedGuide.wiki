@@ -1,0 +1,10 @@
+#summary Getting started Guide for the Joose framework
+
+= Introduction =
+
+This page gives some hints on where to go after you downloaded and [installed Installation] Joose.
+
+= Steps to mastering Joose =
+
+# Check out the Cookbook. The [CookbookRecipe1 first] shows you how create a simple Class with two attributes. The other entries are linked from the [http://code.google.com/p/joose-js/ Homepage]
+# Try out the class browser example. You can try it [http://it.test.avantaxx.de/xssinterface/projects/Joose/examples/class_browser.html online] or open the file examples/class_browser.html from the Joose download in your web browser.
