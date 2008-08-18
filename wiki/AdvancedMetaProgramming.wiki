@@ -8,6 +8,7 @@ You may use the method names below to look for methods in the Joose source that 
 = Table of Contents =
 
  * Custom Meta Classes (subclasses of Joose.Class)
+  * Custom class builders
   * buildComplete
   * addToString
   * addInitializer
