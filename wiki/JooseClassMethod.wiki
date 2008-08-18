@@ -1,0 +1,11 @@
+#summary Documentation for the class Joose.Method
+
+= Class: Joose.ClassMethod =
+
+= Description =
+
+Joose.ClassMethod is the meta class for class methods.
+
+== Method: isClassMethod() ==
+
+Returns true
