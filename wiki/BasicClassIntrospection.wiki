@@ -133,11 +133,11 @@ Make _classObject_ a super class of the class and all instances. This will not o
 
 == detach ==
 
-You may at any time detach an instance from its class by calling _detach()_ directly on the instance. The instance now has its own meta object. Calling methods on this meta object will not have any effect one the former class of the instance.
+You may at any time detach an instance from its class by calling _detach()_ directly on the instance. The instance now has its own meta object. Calling methods on this meta object will not have any effect one the former class of the instance because the objects receives its own meta object.
 
 {{{instance.detach}}}
 
-== instane role applicaton ==
+== instance role applicaton ==
 
 You may also apply a role to an instance. This will automatically detach the instance from its class.
 
