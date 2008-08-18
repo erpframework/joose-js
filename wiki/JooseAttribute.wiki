@@ -64,3 +64,19 @@ This method is called by the default initializer of Joose.Class when an objects 
  * paras: The parameters that were passed to the constructor of the object. Paras must be a simple JavaScript objects like in new Example({field1: 1, field2: 2})
 
 If paras includes a field with the name of the return value of initializerName(), its value will be used as the new value of this attribute in the object. Otherwise if the init property was set for attribute the value of the init property will be used. 
+
+== Method: handleIs() ==
+
+Handles the property "is".
+ * If the value is "ro" it will call addGetter()
+ * If the value is "rw" it will call addGetter() and addSetter()
+
+== Method: handlesHandles() (Experimental) ==
+
+If the value of handles is "*", this will generated methods for all methods of the type of this attribute (declared through the property isa) that delegate to the attribute. This is an extremely easy way to build decorators with Joose.
+
+== Method: handlePredicate() ==
+
+Handles the property "predicate"
+
+Generates a method in the class that this attribute belongs to (The name will be the value of the property predicate) that returns true if the value of the attribute is defined.
