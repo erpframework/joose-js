@@ -95,9 +95,13 @@ Returns an array of [JooseMethod instance method objects] with all instance meth
 
 Returns an array of [JooseClassMethod class method objects] with all class methods of the class (including methods from super classes).
 
+== Method: getSuperClass() ==
+
+Returns an array of the direct super class of the class.
+
 == Method: getSuperClasses() ==
 
-Returns an array of all direct super classes of the class.
+Returns an array of all direct super classes of the class. (Joose does not directly support multiple inheritance, so this should usually only return an array of size one)
 
 == Method: getRoles() ==
 
