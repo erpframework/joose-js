@@ -1,6 +1,6 @@
 #summary Meta classes used in Joose
 
-*Warning*
+*Warning:*
 No need to read this if you are not interested in funky meta programming. Joose works perfectly well without this.
 
 = Meta classes =
