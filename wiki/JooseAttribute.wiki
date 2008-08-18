@@ -55,4 +55,12 @@ Returns the public name of this attribute. This removes the leading underscore f
 
 == Method: isPersistent() ==
 
-Returns false if the property "persistent" was set to false
+Returns false if the property "persistent" was set to false.
+
+== Method: doInitialization(objects, paras) ==
+
+This method is called by the default initializer of Joose.Class when an objects is constructed. The function receives two parameters:
+ * object: The object that is being initialized
+ * paras: The parameters that were passed to the constructor of the object. Paras must be a simple JavaScript objects like in new Example({field1: 1, field2: 2})
+
+If paras includes a field with the name of the return value of initializerName(), its value will be used as the new value of this attribute in the object. Otherwise if the init property was set for attribute the value of the init property will be used. 
