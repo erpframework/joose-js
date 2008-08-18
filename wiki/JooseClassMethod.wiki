@@ -1,4 +1,4 @@
-#summary Documentation for the class Joose.Method
+#summary Documentation for the class Joose.ClassMethod
 
 = Class: Joose.ClassMethod =
 
