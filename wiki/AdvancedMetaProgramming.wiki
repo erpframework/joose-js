@@ -6,13 +6,13 @@ This is currently just a stub :(
 
 = Table of Contents =
 
-* Custom Meta Classes (subclasses of Joose.Class)
+ * Custom Meta Classes (subclasses of Joose.Class)
   * buildComplete
   * addToString
   * addInitializer
   * addNonJooseSuperClass
   * makeAnonSubclass
-* Custom Attribute Meta Classes
+ * Custom Attribute Meta Classes
   * Heavily used in ObjectRelationalMapper
-* Custom Method Meta Classes
+ * Custom Method Meta Classes
   * Not as interesting as attribute meta classes 
