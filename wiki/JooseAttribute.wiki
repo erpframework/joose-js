@@ -31,3 +31,7 @@ Adds a method called "get"+uppercaseFirst(attributeName) to the class that this 
 == Method: addSetter() ==
 
 Adds a method called "set"+uppercaseFirst(attributeName) to the class that this attribute belongs to. The setter-method sets the attribute value to its first parameter. If the "isa" property was set on the attribute it will also do a type check.
+
+== Method: initializerNamer() ==
+
+Returns the name of the attribute that will be used in the initializer to initialize an objects upon contruction: {{{new Example({ initializerName: 3 })}}}
