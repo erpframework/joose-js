@@ -1,10 +1,9 @@
 #summary Meta classes used in Joose
 
-= Warning =
-
+*Warning*
 No need to read this if you are not interested in funky meta programming. Joose works perfectly well without this.
 
-= Meta classes
+= Meta classes =
 
 The following concepts are represented by meta classes or meta objects in Joose
  * Classes: See Joose.Class in documented in [BasicClassIntrospection Basic Class Introspection]
