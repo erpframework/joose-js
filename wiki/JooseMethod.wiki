@@ -33,3 +33,13 @@ Returns true if the method is a class method.
 == Method: asFunction() ==
 
 Returns the JavaScript function that will be executed if this method is exectued. By default this returns getBody().
+
+== Method: copy() ==
+
+Makes a copy of this method object
+
+== Methods: after, before, around, override, augment ==
+
+These method wrap the method (and its underlying JavaScript function) in a certain way.
+
+See [MethodModifiers]
