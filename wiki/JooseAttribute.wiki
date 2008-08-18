@@ -1,0 +1,33 @@
+#summary Documentation for the class Joose.Attribute
+
+= Class: Joose.Attribute =
+
+= Description =
+
+Joose.Attribute is the default meta class for attribute. There is one instance of Joose.Attribute for each attribute in Joose. These objects control how attributes are added to a class and they can be introspected to retrieve information about attributes at runtime.
+
+= Methods =
+
+== Method: getName() ==
+
+Returns the name of the attribute
+
+== Method: getProps() ==
+
+Returns the properties of the attribute. In a declaration like
+{{{
+has: {
+   is: "rw",
+   init: "default value"
+}
+}}}
+is and init are properties of the attribute.
+
+
+== Method: addGetter ==
+
+Adds a method called "get"+uppercaseFirst(attributeName) to the class that this attribute belongs to. The getter-method returns the current value of the attribute. If the property "lazy" the attribute will be initialized upon the first call to the getter.
+
+== Method: addSetter() ==
+
+Adds a method called "set"+uppercaseFirst(attributeName) to the class that this attribute belongs to. The setter-method sets the attribute value to its first parameter. If the "isa" property was set on the attribute it will also do a type check.
