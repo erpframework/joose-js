@@ -129,6 +129,8 @@ This will add the method makeNew to the Point class object and lets you call {{{
 
 Method modifiers allow wrapping of already defined methods. See for example [CookbookRecipe2]
 
+For more detailed info see [MethodModifiers Method Modifiers]
+
 ==== before ====
 
 Methods declared as "before" will be called before the overridden method. The return value will be discarded.
