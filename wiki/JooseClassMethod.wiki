@@ -6,6 +6,10 @@
 
 Joose.ClassMethod is the meta class for class methods.
 
+= Inherits from =
+
+[JooseMethod Joose.Method]
+
 == Method: isClassMethod() ==
 
 Returns true
