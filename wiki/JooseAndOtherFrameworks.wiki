@@ -10,7 +10,7 @@ Joose
 
 = Using Joose with another JavaScript framework =
 
-Joose should work very Well with other JavaScript frameworks. It does however reserve some global function that should not be used by the other framework. These are:
+Joose should work very well with other JavaScript frameworks. It does however reserve some global function that should not be used by the other framework. These are:
  * Joose :)
  * Class
  * Module
@@ -24,4 +24,7 @@ Joose has been thoroughly tested in conjuction with
  * [http://jquery.com/ jQuery]
 
 If you are using Joose with another framework like Dojo, Prototype, Ext or Mootools, please tell us.
- 
+
+= Known Issues =
+
+Joose currently stuff its global symbols into the top level namespace (window in the Browser). This currently breaks prototype if it is loaded before Joose. This will be fixed in the next release.
