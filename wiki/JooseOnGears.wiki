@@ -41,3 +41,42 @@ The OR-Mapper is currently under heavy-development. For more info, check out thi
  * [http://ajaxian.com/archives/joose-expands-with-new-orm Post on Ajaxian]
 
 = WorkerPool =
+
+You can automatically execute methods of a Joose.Class in a different thread using Google Gears. All you need to do is use the meta class Joose.Gears and add a worker method. All the Gears-Interfacing is handled for you. If Gears is not present, the worker is executed in the main thread. The workers result will be sent to a method called "on"+uppercaseFirst($worker_name) if available:
+
+{{{
+    Class("HardWork", {
+        meta: Joose.Gears,
+        has: {
+            data: {is: rw, init: {}}
+        },
+        methods: {
+            onDoWork: function (result) {
+                ok(result == 1001, "Gear Worker returns correct result")
+            }
+        },
+        workers: {
+            doWork: function (start) {
+                var counter = start;
+                for(var i = 0; i < 1000; i++) {
+                    counter++
+                }
+                return counter
+            }
+        }
+    })
+
+    var hw = new HardWork();
+
+    hw.doWork(1)
+}}}
+
+== Links ==
+
+ * [http://gearsblog.blogspot.com/2008/03/joosegears-adding-support-for-workers.html Post from Google Gears blog about Joose.Gears]
+
+= HttpRequest =
+
+Joose includes a simple helper method to do AJAX-requests that automatically use the Google Gears HTTP-Request-API if available which can greatly enhance the performance of pages which make heavy use of AJAX.
+
+Just call {{{ Joose.Gears.ajaxRequest(method, url, data, callback) }}}
