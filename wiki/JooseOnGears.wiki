@@ -1,0 +1,16 @@
+#summary How Joose and Google Gears can work together
+
+= Introduction =
+
+Joose supports several ways to with [http://gears.google.com/ Google Gears] out of the box. Whenever possible the APIs are implemented in a way that they automatically fall back to alternatives when a user does not have Gears installed. In particular the following APIs are directly supported:
+
+ * [http://code.google.com/apis/gears/api_database.html Database]
+ * [http://code.google.com/apis/gears/api_workerpool.html WorkerPool]
+ * [http://code.google.com/apis/gears/api_httprequest.html HttpRequest]
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
