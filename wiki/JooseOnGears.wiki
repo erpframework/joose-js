@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Joose supports several ways to with [http://gears.google.com/ Google Gears] out of the box. Whenever possible the APIs are implemented in a way that they automatically fall back to alternatives when a user does not have Gears installed. In particular the following APIs are directly supported:
+Joose supports several ways to work with [http://gears.google.com/ Google Gears] out of the box. Whenever possible the APIs are implemented in a way that they automatically fall back to alternatives when a user does not have Gears installed. In particular the following APIs are directly supported:
 
  * [http://code.google.com/apis/gears/api_database.html Database]
  * [http://code.google.com/apis/gears/api_workerpool.html WorkerPool]
@@ -32,7 +32,10 @@ Declaring a database entity class looks like this:
               }
           });
 }}}
-The OR-Mapper is currently under heavy-development. For more info, check out this [http://joose-js.blogspot.com/search/label/OR-Mapper series of blog posts].
+
+The OR-Mapper will use the native HTML5 database if available and use the Gears database as a fallback. If neither is available it will throw an exception.
+
+The OR-Mapper is currently under heavy-development. For more info, check out this [http://joose-js.blogspot.com/search/label/OR-Mapper series of blog posts]. You are encouraged to try it out. Simply [http://code.google.com/p/joose-js/source/checkout checkout] the latest Joose version from svn.
 
 == Links ==
 
@@ -42,7 +45,7 @@ The OR-Mapper is currently under heavy-development. For more info, check out thi
 
 = WorkerPool =
 
-You can automatically execute methods of a Joose.Class in a different thread using Google Gears. All you need to do is use the meta class Joose.Gears and add a worker method. All the Gears-Interfacing is handled for you. If Gears is not present, the worker is executed in the main thread. The workers result will be sent to a method called "on"+uppercaseFirst($worker_name) if available:
+You can automatically execute methods of a Joose.Class in a different thread using Google Gears. All you need to do is to use the meta class Joose.Gears and add a worker method. All the Gears-Interfacing is handled for you. If Gears is not present, the worker is executed in the main thread. The workers result will be sent to a method called "on"+uppercaseFirst($worker_name) if available:
 
 {{{
     Class("HardWork", {
@@ -71,9 +74,11 @@ You can automatically execute methods of a Joose.Class in a different thread usi
     hw.doWork(1)
 }}}
 
+If Gears is not available, the method will simply be executed in the main thread.
+
 == Links ==
 
- * [http://gearsblog.blogspot.com/2008/03/joosegears-adding-support-for-workers.html Post from Google Gears blog about Joose.Gears]
+ * [http://gearsblog.blogspot.com/2008/03/joosegears-adding-support-for-workers.html Post on the Google Gears blog about Joose.Gears]
 
 = HttpRequest =
 
@@ -84,3 +89,5 @@ Just call {{{ Joose.Gears.ajaxRequest(method, url, data, callback) }}} to initia
  * url is an URL
  * data is a JavaScript object (consisting of key-value-pairs)
  * callback is the function that receives the response of the AJAX-request as the first parameter
+
+If Gears is not available, the system will perform a regular AJAX request.
