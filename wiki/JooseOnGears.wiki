@@ -12,7 +12,8 @@ Joose supports several ways to with [http://gears.google.com/ Google Gears] out 
 
 The Joose distribution includes an object-relational mapper that enables transparent access to the Google Gears database and the HTML5 database (which is currently primarily supported by the Safari browser). You'll find it the examples directory under examples/simple_orm/async and you can try it out with this [http://joose-js.googlecode.com/svn/trunk/examples/simple_orm_sticky_notes.html demo application].
 Declaring a database entity class looks like this:
-{{{          Class("Person", {
+{{{
+          Class("Person", {
               isa:  ORM.Entity,
 
               tableName: "person",
