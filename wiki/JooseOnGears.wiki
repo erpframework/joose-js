@@ -79,4 +79,8 @@ You can automatically execute methods of a Joose.Class in a different thread usi
 
 Joose includes a simple helper method to do AJAX-requests that automatically use the Google Gears HTTP-Request-API if available which can greatly enhance the performance of pages which make heavy use of AJAX.
 
-Just call {{{ Joose.Gears.ajaxRequest(method, url, data, callback) }}}
+Just call {{{ Joose.Gears.ajaxRequest(method, url, data, callback) }}} to initiate a request, where
+ * method is either 'GET' or 'POST'
+ * url is an URL
+ * data is a JavaScript object (consisting of key-value-pairs)
+ * callback is the function that receives the response of the AJAX-request as the first parameter
