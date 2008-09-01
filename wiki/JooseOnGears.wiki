@@ -33,3 +33,11 @@ Declaring a database entity class looks like this:
           });
 }}}
 The OR-Mapper is currently under heavy-development. For more info, check out this [http://joose-js.blogspot.com/search/label/OR-Mapper series of blog posts].
+
+== Links ==
+
+ * [http://joose-js.googlecode.com/svn/trunk/examples/simple_orm_sticky_notes.html Demo application]
+ * [http://joose-js.googlecode.com/svn/trunk/examples/simple_orm_async.html Unit test suite]
+ * [http://ajaxian.com/archives/joose-expands-with-new-orm Post on Ajaxian]
+
+= WorkerPool =
