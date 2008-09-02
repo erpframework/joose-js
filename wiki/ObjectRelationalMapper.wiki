@@ -1,5 +1,7 @@
 #summary A simple object-relational mapper for the Google Gears database
 
+*Note:* This example has been replaced by a [JooseOnGears#Database more sophisticated application].
+
 This example will run the test suite of the example and then display a class browser. This class browser shows the contents of the underlying tables for those classes that represent a table. (These classes live in the MyEntities module.)
 
 = Run the example =
