@@ -1,0 +1,5 @@
+#summary Hacking on Joose
+
+You are invited to join hacking on Joose. Just write a mail to malte.ubl {at} gmail.com, tell us which field you are most interested in and you'll get instant commit access to the repo.
+
+Please only commit working (as defined by the tests you wrote) code :)
