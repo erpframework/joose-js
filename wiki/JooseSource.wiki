@@ -1,3 +1,3 @@
 #summary Joose SVN
 
-The can be checked out from http://code2.0beta.co.uk/moose/svn/Joose/trunk using anonymous SVN.
+This page is no longer needed. Goto [http://code.google.com/p/joose-js/source/checkout standard source page]
