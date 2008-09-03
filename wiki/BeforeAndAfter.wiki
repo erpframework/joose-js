@@ -122,3 +122,5 @@ Module("Test", function (m) {
     })
 })
 }}}
+
+To learn more about Joose, we recommend reading the [CookbookRecipe1 cookbook]
