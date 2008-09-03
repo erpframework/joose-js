@@ -1,5 +1,7 @@
 #summary How Joose and Google Gears can work together
 
+http://joose-js.googlecode.com/svn/trunk/logo/joose.png
+
 = Introduction =
 
 Joose supports several ways to work with [http://gears.google.com/ Google Gears] out of the box. Whenever possible the APIs are implemented in a way that they automatically fall back to alternatives when a user does not have Gears installed. In particular the following APIs are directly supported:
