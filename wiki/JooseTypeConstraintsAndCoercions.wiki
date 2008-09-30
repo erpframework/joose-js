@@ -3,8 +3,57 @@
 
 = Introduction =
 
-TODO(jwall): start documenting the TypeConstraint API
+*NOTE*: The below API is mostly complete but may change in a few small ways before release.
+Most Notably the TYPE namespace may change to a different namespace.
+
+Joose now includeds support for TypeConstraints and Coercions in a Joose Class.
+With Joose TypeConstraints and TypeCoercions you can
+enforce types in your Joose Attributes.
 
 = Details =
 
-TBD
+The Joose.Attribute properties: isa and coerce each set the type constraint and turn
+on coercions respectively.
+
+Joose.TypeConstraints are defined like so:
+
+{{{
+
+Type('MySmallNumber', {
+    uses: TYPE.Int, // this is a specilization of the TYPE.Int Class
+    where: function (value) {
+        if ( value > 1 && value < 5 ) { // we only accept Ints between 1 and 5
+            return true;
+        }
+        return false;
+    },
+    coerce: [{ //optional coercion definition list
+                from: TYPE.Str, //coercion from string to number
+                via: function(str) {
+                    return new Number(Str); //perform our coercion
+                }
+            }]
+            
+});
+
+}}}
+
+You can then use the TypeConstraint in a class like this:
+
+{{{
+
+Class('MyClass', {
+    has: {
+        attr1: {
+            is: 'rw',                // TypeConstraints only work for rw attributes
+            isa: TYPE.MySmallNumber, // use the  MySmallNumber constraint
+            coerce: true             // turn on coercions for this attribute
+        }
+    }
+})
+
+}}}
+
+The MyClass will enforce your constraint in the setter method for attr1 and will
+coerce strings into MySmallNumbers for you.
+
