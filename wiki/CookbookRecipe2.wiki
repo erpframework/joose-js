@@ -31,7 +31,7 @@ Module("Bank", function (m) {
         has: {
             overdraftAccount: {
                 isa: m.Account,
-                is: rw
+                is: "rw"
             }
         },
         before: {
