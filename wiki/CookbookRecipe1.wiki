@@ -6,8 +6,8 @@
 {{{
 Class("Point", {
     has: {
-        x: {is: ro},
-        y: {is: rw},
+        x: {is: "ro"},
+        y: {is: "rw"},
     },
     methods: {
         clear: function () {
