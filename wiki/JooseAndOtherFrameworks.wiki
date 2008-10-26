@@ -14,8 +14,8 @@ Joose
 || jQuery || Works  ||
 || YUI    || Works  ||
 || Dojo   || Works  ||
-|| Prototype || Broken ||
-|| Mootools  || Broken ||
+|| Prototype || Broken [http://code.google.com/p/joose-js/source/checkout (Fixed in SVN latest)] ||
+|| Mootools  || Broken [http://code.google.com/p/joose-js/source/checkout (Fixed in SVN latest)] ||
 
 Support for Prototype and Mootools could be added. If you need this, [http://groups.google.com/group/joose-js please write us]
 
