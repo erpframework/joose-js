@@ -8,6 +8,17 @@ Joose
  * does not enforce a particular component framework
  * could run in any JavaScript environment (not just the browser, but also on the server side or within Flash (as ActionScript))
 
+= Joose has been tested with these well known JS frameworks =
+
+|| Name   || Status ||
+|| jQuery || Works  ||
+|| YUI    || Works  ||
+|| Dojo   || Works  ||
+|| Prototype || Broken ||
+|| Mootools  || Broken ||
+
+Support for Prototype and Mootools could be added. If you need this, [http://groups.google.com/group/joose-js please write us]
+
 = Using Joose with another JavaScript framework =
 
 Joose should work very well with other JavaScript frameworks. It does however reserve some global function that should not be used by the other framework. These are:
@@ -17,13 +28,6 @@ Joose should work very well with other JavaScript frameworks. It does however re
  * Role
  * Prototype
  * joosify
-
-= Tests =
-
-Joose has been thoroughly tested in conjuction with
- * [http://jquery.com/ jQuery]
-
-If you are using Joose with another framework like Dojo, Prototype, Ext or Mootools, please tell us.
 
 = Known Issues =
 
