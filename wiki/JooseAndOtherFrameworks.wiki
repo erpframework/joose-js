@@ -8,6 +8,8 @@ Joose
  * does not enforce a particular component framework
  * could run in any JavaScript environment (not just the browser, but also on the server side or within Flash (as ActionScript))
 
+Thus we recommend to use Joose together with a JavaSscript library that facilitates DOM access.
+
 = Joose has been tested with these well known JS frameworks =
 
 || Name   || Status ||
@@ -16,19 +18,3 @@ Joose
 || Dojo   || Works  ||
 || Prototype || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
 || Mootools  || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
-
-Support for Prototype and Mootools could be added. If you need this, [http://groups.google.com/group/joose-js please write us]
-
-= Using Joose with another JavaScript framework =
-
-Joose should work very well with other JavaScript frameworks. It does however reserve some global function that should not be used by the other framework. These are:
- * Joose :)
- * Class
- * Module
- * Role
- * Prototype
- * joosify
-
-= Known Issues =
-
-Joose currently stuff its global symbols into the top level namespace (window in the Browser). This currently breaks prototype if it is loaded before Joose. This will be fixed in the next release.
