@@ -151,7 +151,7 @@ Methods declared as around will receive the overridden method as the first param
 
 ==== override ====
 
-The override method modifier is very powerful because it allows overiding of methods of super classes with the ability to call the method of the super class by calling {{{this.SUPER()}}}. This is otherwise not possible in JavaScript.
+The override method modifier is very powerful because it allows overiding of methods of super classes with the ability to call the method of the super class by calling {{{this.SUPER()}}}. This is otherwise not easily possible in JavaScript.
 
 {{{
     override: {
