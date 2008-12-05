@@ -182,4 +182,4 @@ Joose objects stringify to "a ClassName" where ClassName is the name of the clas
 Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
 {{{ var point = new Point({ x: 10, y: 10 }) }}}
 
-You may add your own custom initialize method to a class to override this behavior. In order to provide your own behavior upon object creation while still keeping the default initialization in place, it can be very helpful to use define an [http://code.google.com/p/joose-js/wiki/BuildingAClass#after after-method modifier] for the initialize method.
+You may add your own custom initialize method to a class to override this behavior. In order to provide your own behavior upon object creation while still keeping the default initialization in place, it can be very helpful to use define an [http://code.google.com/p/joose-js/wiki/MethodModifiers#after after-method modifier] for the initialize method.
