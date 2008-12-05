@@ -170,15 +170,16 @@ The override method modifier is very powerful because it allows overiding of met
 
 The augment method modifier is like override but the other way around. The most-super method will be called first, but it can call method of the sub class using {{{ this.INNER() }}}. For an example, see CookbookRecipe7.
 
-== Object Initialization ==
-
-Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
-{{{ var point = new Point({ x: 10, y: 10 }) }}}
-
-If you add your own initialize method to your class the parameters which are passed to a constructor will be passed to the initialize method.
-
 == Special Methods ==
 
 === stringify ===
 
 Joose objects stringify to "a ClassName" where ClassName is the name of the class of the object. In order to override this behavior, implement a method called {{{ stringify }}} that returns a string. It is advised not to override the default {{{ toString }}} method directly because there are issues in some JavaScript engines.
+
+
+=== initialize ===
+
+Joose will automatically add an initialize method for your class, that allows initialization of new instance like this:
+{{{ var point = new Point({ x: 10, y: 10 }) }}}
+
+You may add your own custom initialize method to a class to override this behavior. In order to provide your own behavior upon object creation while still keeping the default initialization in place, it can be very helpful to use define an [http://code.google.com/p/joose-js/w/edit/BuildingAClass#after after-method modifier] for the initialize method.
