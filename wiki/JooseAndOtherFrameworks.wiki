@@ -16,5 +16,6 @@ Thus we recommend to use Joose together with a JavaScript library that facilitat
 || jQuery || Works  ||
 || YUI    || Works  ||
 || Dojo   || Works  ||
+|| ExtJS   || Works [http://extjs.com/forum/showthread.php?t=55968 (There is also a experimental Bridge for "joosifying" all of ExtJS)]  ||
 || Prototype || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
 || Mootools  || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
