@@ -1,4 +1,5 @@
 #summary Interesting blog articles about aspects of Joose
 
  * [http://joose-js.blogspot.com/2008/07/class-extention-with-roles-and-method.html Class extention with roles and method modifiers]
+ * [http://joose-js.blogspot.com/2009/01/aspect-oriented-programming-with.html Another article on the same topic with a real world example]
  * [http://joose-js.blogspot.com/2008/10/joose-presentation.html Presentation about Joose basics]
