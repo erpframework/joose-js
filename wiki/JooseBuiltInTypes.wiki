@@ -11,7 +11,7 @@ All of the types live in the Joose.Type.* namespace.
   * Any - anything including null
     * Null - only null
     * NotNull - can't be null
-      * Enum - special enum type
+      * Enum - special base enum type uses the value feature of type descriptions
       * Obj - must be an object
         * Func - must be a function
         * Array - must be an array
