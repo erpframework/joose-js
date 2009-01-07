@@ -9,7 +9,7 @@ enforce types in your Joose Attributes.
 
 = Details =
 
-Joose.TypeConstraints are defined like so:
+A simple Joose.TypeConstraint with coercions is defined like so:
 
 {{{
 
@@ -50,6 +50,29 @@ Class('MyClass', {
 
 The MyClass will enforce your constraint in the setter method for attr1 and will
 coerce strings into MySmallNumbers for you.
+
+== Type Properties ==
+
+You can define a type with a property like so
+
+{{{
+
+Type('MyPropertyType', {
+    uses: [Joose.Type.NotNull],
+    message: function(i) {
+        return "item: "+i+" is not: "+this.getProps.someProp;
+    },
+    where: function(i) {
+       if (this.getProps().someProp == i)
+           return true;
+       return false;
+    },
+    someProp: 'foo'
+});
+
+}}}
+
+Now types that use MyPropertyType in their uses can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in tests/19_types.t.js for examples of this.
 
 == Default Joose Built-in types ==
 
