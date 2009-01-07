@@ -12,9 +12,6 @@ enforce types in your Joose Attributes.
 
 = Details =
 
-The Joose.Attribute properties: isa and coerce each set the type constraint and turn
-on coercions respectively.
-
 Joose.TypeConstraints are defined like so:
 
 {{{
@@ -46,7 +43,7 @@ Class('MyClass', {
     has: {
         attr1: {
             is: 'rw',                // TypeConstraints only work for rw attributes
-            isa: TYPE.MySmallNumber, // use the  MySmallNumber constraint
+            isa: Joose.Type.MySmallNumber, // use the  MySmallNumber constraint
             coerce: true             // turn on coercions for this attribute
         }
     }
@@ -56,4 +53,3 @@ Class('MyClass', {
 
 The MyClass will enforce your constraint in the setter method for attr1 and will
 coerce strings into MySmallNumbers for you.
-
