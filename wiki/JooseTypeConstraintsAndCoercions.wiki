@@ -50,3 +50,9 @@ Class('MyClass', {
 
 The MyClass will enforce your constraint in the setter method for attr1 and will
 coerce strings into MySmallNumbers for you.
+
+== Default Joose Built-in types ==
+
+Joose comes with a set of default types that you can use as is or build you own types off of them.
+
+The Type hierarchy can be found in the Following Doc: JooseBuiltInTypes
