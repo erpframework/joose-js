@@ -14,7 +14,7 @@ A simple Joose.TypeConstraint with coercions is defined like so:
 {{{
 
 Type('MySmallNumber', {
-    uses: TYPE.Int, // this is a specilization of the TYPE.Int Class
+    uses: Joose.Type.Int, // this is a specilization of the TYPE.Int Class
     where: function (value) {
         if ( value > 1 && value < 5 ) { // we only accept Ints between 1 and 5
             return true;
