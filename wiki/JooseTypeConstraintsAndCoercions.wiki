@@ -3,9 +3,6 @@
 
 = Introduction =
 
-*NOTE*: The below API is mostly complete but may change in a few small ways before release.
-Most Notably the TYPE namespace may change to a different namespace.
-
 Joose now includeds support for TypeConstraints and Coercions in a Joose Class.
 With Joose TypeConstraints and TypeCoercions you can
 enforce types in your Joose Attributes.
