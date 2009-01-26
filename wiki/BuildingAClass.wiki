@@ -112,7 +112,7 @@ Using the methods-keyword you may add instance methods to your class.
 
 This will add the methods clear() and stringify() to your class. If you provide your own stringify method, you objects will stringify to its return value.
 
-=== classMethods ===
+=== classMethods (Static Methods) ===
 
 The classMethods-keywords works similar to the methods keyword, but you will be able to call the methods on the class instead of the instance.
 {{{
