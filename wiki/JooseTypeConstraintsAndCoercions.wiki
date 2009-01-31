@@ -6,6 +6,8 @@
 Joose now includeds support for type constraints and coercions in a Joose Class.
 With Joose type constraints and type coercions you can enforce types for attributes of your Joose classes and for parameters of Joose methods.
 
+Joose type constraints are only somewhat related to types in the traditional sense of computer science. They allow the programmer to define a set of contraints which a value that is stored in a variable will have to fulfil. As they apply to values rather than containers these checks are performed at runtime rather than compile time.
+
 = Declaration of a Simple Type =
 
 A simple Joose.TypeConstraint is defined like this:
