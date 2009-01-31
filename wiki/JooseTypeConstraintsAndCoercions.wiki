@@ -1,30 +1,42 @@
-#summary Overview of Joose TypeConstraints and TypeCoercions
+#summary Overview of Joose Type Constraints and Type Coercions
 #labels Types,TypeConstraints,TypeCoercions,Coercions
 
 = Introduction =
 
-Joose now includeds support for TypeConstraints and Coercions in a Joose Class.
-With Joose TypeConstraints and TypeCoercions you can
-enforce types in your Joose Attributes.
+Joose now includeds support for type constraints and coercions in a Joose Class.
+With Joose type constraints and type coercions you can enforce types for attributes of your Joose classes and for parameters of Joose methods.
 
-= Details =
+= Declaration of a Simple Type =
 
-A simple Joose.TypeConstraint with coercions is defined like so:
+A simple Joose.TypeConstraint is defined like this:
 
 {{{
-
 Type('MySmallNumber', {
-    uses: Joose.Type.Int, // this is a specilization of the TYPE.Int Class
+    uses: Joose.Type.Int, // this is a specilization of the Joose.Type.Int Class
+    where: function (value) {
+        if ( value > 1 && value < 5 ) { // we only accept Ints between 1 and 5
+            return true;
+        }
+        return false;
+    }       
+});
+}}}
+
+By providing a list of coercions (see the coerce: statement) you can define how values can be converted to your desired type from other (more generic) types. In this example strings are converted to MySmallNumbers. This is a very powerful feature because it saves you from having to worry about data conversion and validation and centralizes these functions.
+
+{{{
+Type('MySmallNumber', {
+    uses: Joose.Type.Int, // this is a specilization of the Joose.Type.Int Class
     where: function (value) {
         if ( value > 1 && value < 5 ) { // we only accept Ints between 1 and 5
             return true;
         }
         return false;
     },
-    coerce: [{ //optional coercion definition list
-                from: TYPE.Str, //coercion from string to number
+    coerce: [{  // optional coercion definition list
+                from: TYPE.Str, // coercion from string to number
                 via: function(str) {
-                    return new Number(Str); //perform our coercion
+                    return new Number(Str); // perform our coercion
                 }
             }]
             
@@ -35,28 +47,31 @@ Type('MySmallNumber', {
 You can then use the TypeConstraint in a class like this:
 
 {{{
-
 Class('MyClass', {
     has: {
         attr1: {
-            is: 'rw',                // TypeConstraints only work for rw attributes
+            is: 'rw',                      // TypeConstraints only work for rw attributes
             isa: Joose.Type.MySmallNumber, // use the  MySmallNumber constraint
-            coerce: true             // turn on coercions for this attribute
+            coerce: true,                  // turn on coercions for this attribute
+            nullable: true                 // This attribute may be set to null
         }
     }
 })
-
 }}}
 
-The MyClass will enforce your constraint in the setter method for attr1 and will
-coerce strings into MySmallNumbers for you.
+The MyClass will enforce your constraint in the setter method for attr1 and will coerce strings into MySmallNumbers for you. Because coercions do carry some runtime overhead with them you have to enable the feature by saying {{{coerce: true}}} in the attribute definition.
+
+When calling a setter for a typed attribute like {{{ setAttr1() }}} in the above example, Joose will throw an exception when a invalid value is passed to the setter. This validation is also enforced during initialization {{{ new MyClass({ attr1: "1" }) }}}
+
+You may also pass a callback to the setter method as a second parameter that is used as an error handler if you prefer.
+
+When setting the nullable property in the attribute definion null-Values are accepted as values for the attribute.
 
 == Type Properties ==
 
-You can define a type with a property like so
+You can define a type with a property like this:
 
 {{{
-
 Type('MyPropertyType', {
     uses: [Joose.Type.NotNull],
     message: function(i) {
@@ -69,13 +84,19 @@ Type('MyPropertyType', {
     },
     someProp: 'foo'
 });
-
 }}}
 
-Now types that use MyPropertyType in their uses can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in tests/19_types.t.js for examples of this.
+Now types that use MyPropertyType in their uses can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in [http://code.google.com/p/joose-js/source/browse/trunk/tests/16_types.t.js?r=442 tests/19_types.t.js] for examples of this.
 
 == Default Joose Built-in types ==
 
 Joose comes with a set of default types that you can use as is or build you own types off of them.
 
-The Type hierarchy can be found in the Following Doc: JooseBuiltInTypes
+http://joose-js.googlecode.com/svn/trunk/doc_images/Joose_Type_Hierarchy.png
+Diagram of the default type hierarchy.
+
+You may also view the [http://code.google.com/p/joose-js/source/browse/trunk/lib/Joose/Types.js default type source code] as an inspiration for your own types.
+
+== Further Reading ==
+
+[http://joose-js.blogspot.com/2009/01/type-contraints-and-type-coercions-in.html Introduction to type constraints and type coercions]
