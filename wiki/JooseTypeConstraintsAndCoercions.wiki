@@ -3,6 +3,8 @@
 
 = Introduction =
 
+* This feature was introduced in Joose 2.0*
+
 Joose now includeds support for type constraints and coercions in a Joose Class.
 With Joose type constraints and type coercions you can enforce types for attributes of your Joose classes and for parameters of Joose methods.
 
