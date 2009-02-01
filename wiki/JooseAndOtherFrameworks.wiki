@@ -41,4 +41,4 @@ Thus we recommend to use Joose together with a JavaScript library that facilitat
 || Name || Status ||
 || Rhino || Works ||
 || V8 || Untested, but most likely works ||
-|| JScrip.NET || Works (see [http://code.google.com/p/joose-js/source/browse/trunk/playground/jscript.net/test.bat playground/jscript.net/test.bat])
+|| JScrip.NET || Works (see [http://code.google.com/p/joose-js/source/browse/trunk/playground/jscript.net/test.bat playground/jscript.net/test.bat]) ||
