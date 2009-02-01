@@ -5,10 +5,11 @@
 
 * This feature was introduced in Joose 2.0*
 
-Joose now includeds support for type constraints and coercions in a Joose Class.
-With Joose type constraints and type coercions you can enforce types for attributes of your Joose classes and for parameters of Joose methods.
+Joose now includes support for type constraints and coercions for attributes in Joose classes and parameters of methods.
 
-Joose type constraints are only somewhat related to types in the traditional sense of computer science. They allow the programmer to define a set of contraints which a value that is stored in a variable will have to fulfil. As they apply to values rather than containers these checks are performed at runtime rather than compile time.
+Joose type constraints are only somewhat related to static types in the traditional sense of computer science. They allow the programmer to define a set of contraints which a value that is stored in a variable will have to fulfil. As they apply to values rather than containers these checks are performed at runtime rather than compile time.
+
+Type coercions enable automatic conversion of values to your desired type. Especially JavaScript client side programming deals with a lot of user provided string data that needs to be validated and converted to domain values. With type coercions, once you have defined your types (or the use the built-in types), input validation and conversion is completely transparent to your code.
 
 = Declaration of a Simple Type =
 
@@ -67,7 +68,7 @@ Type('MyPropertyType', {
 });
 }}}
 
-Now types that use MyPropertyType in their uses can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in [http://code.google.com/p/joose-js/source/browse/trunk/tests/16_types.t.js?r=442 tests/19_types.t.js] for examples of this.
+Now types that use MyPropertyType in their {{{uses}}}-declaration can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in [http://code.google.com/p/joose-js/source/browse/trunk/tests/16_types.t.js?r=442 tests/19_types.t.js] for examples of this.
 
 == Declaring Types inside Modules ==
 
@@ -91,7 +92,7 @@ Module("MyTypes", function () {
 
 == Types for Attributes ==
 
-You can then use the TypeConstraint in a class like this:
+You can then use the type constraint in a class like this:
 
 {{{
 Class('MyClass', {
@@ -106,7 +107,7 @@ Class('MyClass', {
 })
 }}}
 
-The MyClass will enforce your constraint in the setter method for attr1 and will coerce strings into MySmallNumbers for you. Because coercions do carry some runtime overhead with them you have to enable the feature by saying {{{coerce: true}}} in the attribute definition.
+The MyClass will enforce your constraint in the setter method for attr1 and will coerce strings into MySmallNumbers for you. Because coercions do carry some runtime overhead with them you have to explicitly enable the feature by saying {{{coerce: true}}} in the attribute definition.
 
 When calling a setter for a typed attribute like {{{ setAttr1() }}} in the above example, Joose will throw an exception when a invalid value is passed to the setter. This validation is also enforced during initialization {{{ new MyClass({ attr1: "1" }) }}}
 
@@ -145,7 +146,7 @@ You may also declare types for method parameters
 
 In the example above the method {{{add}}} is declared to take one parameter of type {{{Joose.Type.Int}}}. Coercion is enabled so that strings that look like integers are automatically converted to integers.
 
-You can add constraints for more parameters by putting extra type declarations into the signature array.
+You can, of course, add constraints for more parameters by putting extra type declarations into the signature array.
 
 = Default Joose Built-in types =
 
