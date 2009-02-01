@@ -48,29 +48,6 @@ Type('MySmallNumber', {
 
 }}}
 
-You can then use the TypeConstraint in a class like this:
-
-{{{
-Class('MyClass', {
-    has: {
-        attr1: {
-            is: 'rw',                      // TypeConstraints only work for rw attributes
-            isa: Joose.Type.MySmallNumber, // use the  MySmallNumber constraint
-            coerce: true,                  // turn on coercions for this attribute
-            nullable: true                 // This attribute may be set to null
-        }
-    }
-})
-}}}
-
-The MyClass will enforce your constraint in the setter method for attr1 and will coerce strings into MySmallNumbers for you. Because coercions do carry some runtime overhead with them you have to enable the feature by saying {{{coerce: true}}} in the attribute definition.
-
-When calling a setter for a typed attribute like {{{ setAttr1() }}} in the above example, Joose will throw an exception when a invalid value is passed to the setter. This validation is also enforced during initialization {{{ new MyClass({ attr1: "1" }) }}}
-
-You may also pass a callback to the setter method as a second parameter that is used as an error handler if you prefer.
-
-When setting the nullable property in the attribute definion null-Values are accepted as values for the attribute.
-
 == Type Properties ==
 
 You can define a type with a property like this:
@@ -109,6 +86,66 @@ Module("MyTypes", function () {
     });
 });
 }}}
+
+= Using Types =
+
+== Types for Attributes ==
+
+You can then use the TypeConstraint in a class like this:
+
+{{{
+Class('MyClass', {
+    has: {
+        attr1: {
+            is: 'rw',                      // TypeConstraints only work for rw attributes
+            isa: Joose.Type.MySmallNumber, // use the  MySmallNumber constraint
+            coerce: true,                  // turn on coercions for this attribute
+            nullable: true                 // This attribute may be set to null
+        }
+    }
+})
+}}}
+
+The MyClass will enforce your constraint in the setter method for attr1 and will coerce strings into MySmallNumbers for you. Because coercions do carry some runtime overhead with them you have to enable the feature by saying {{{coerce: true}}} in the attribute definition.
+
+When calling a setter for a typed attribute like {{{ setAttr1() }}} in the above example, Joose will throw an exception when a invalid value is passed to the setter. This validation is also enforced during initialization {{{ new MyClass({ attr1: "1" }) }}}
+
+You may also pass a callback to the setter method as a second parameter that is used as an error handler if you prefer.
+
+When setting the nullable property in the attribute definion null-Values are accepted as values for the attribute.
+
+== Types for Method Parameters ==
+
+You may also declare types for method parameters
+
+{{{
+   // Make a class thats adds to its instance variable "amount"
+   Class("Adder", {
+       has: {
+           amount: { is: "rw" }
+       },
+       methods: {
+           // add is a method with a signature
+           add: {
+               signature: [Joose.Type.Int], // the first parameter must be an integer
+               method:    function add (num) {
+                   return num + this.amount // add the argument num to our instance var amount
+               },
+               coerce:    true // enable coercions for arguments
+           }
+       }
+   })
+  
+   // Make an adder that always adds 3
+   var addTo3 = new Adder({ amount: 3 })
+  
+   // add 3 to the value of the input field
+   alert(addTo3.add(form.addMe.value));
+}}}
+
+In the example above the method {{{add}}} is declared to take one parameter of type {{{Joose.Type.Int}}}. Coercion is enabled so that strings that look like integers are automatically converted to integers.
+
+You can add constraints for more parameters by putting extra type declarations into the signature array.
 
 = Default Joose Built-in types =
 
