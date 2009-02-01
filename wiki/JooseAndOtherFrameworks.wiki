@@ -20,3 +20,25 @@ Thus we recommend to use Joose together with a JavaScript library that facilitat
 || Prototype || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
 || Mootools  || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
 || PureMVC   || Works [http://joose-js.blogspot.com/2009/01/joosifying-puremvc.html (There is also a experimental Bridge for "joosifying" all of PureMVC)]  ||
+
+= Joose has been tested with these Browsers and JavaScript Engines =
+
+== Browsers ==
+
+|| Name || Status ||
+|| Firefox 2 || Works ||
+|| Firefox 3 || Works ||
+|| Firefox 3.1 || Works ||
+|| Safari 3 || Works ||
+|| Chrome/V8 || Works ||
+|| Internet Explorer 8 || Works ||
+|| Internet Explorer 7 || Works ||
+|| Internet Explorer 6 || Works ||
+|| Konqueror || Works ||
+
+== JavaScript Engines ==
+
+|| Name || Status ||
+|| Rhino || Works ||
+|| V8 || Untested, but most likely works ||
+|| JScrip.NET || Works (see [http://code.google.com/p/joose-js/source/browse/trunk/playground/jscript.net/test.bat playground/jscript.net/test.bat])
