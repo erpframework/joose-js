@@ -21,6 +21,7 @@ Thus we recommend to use Joose together with a JavaScript library that facilitat
 || Mootools  || Works [JooseWithPrototypeAndMootools (but follow these instructions)] ||
 || PureMVC   || Works [http://joose-js.blogspot.com/2009/01/joosifying-puremvc.html (There is also a experimental Bridge for "joosifying" all of PureMVC)]  ||
 
+
 = Joose has been tested with these Browsers and JavaScript Engines =
 
 == Browsers ==
