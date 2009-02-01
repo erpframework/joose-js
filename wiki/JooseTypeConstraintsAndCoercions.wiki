@@ -158,4 +158,5 @@ You may also view the [http://code.google.com/p/joose-js/source/browse/trunk/lib
 
 == Further Reading ==
 
-[http://joose-js.blogspot.com/2009/01/type-contraints-and-type-coercions-in.html Introduction to type constraints and type coercions]
+ * [http://joose-js.blogspot.com/2009/01/type-contraints-and-type-coercions-in.html Introduction to type constraints and type coercions]
+ * [http://joose-js.blogspot.com/2009/01/typed-method-signatures-in.html Typed Method Signatures in Joose/JavaScript (parseInt never again)]
