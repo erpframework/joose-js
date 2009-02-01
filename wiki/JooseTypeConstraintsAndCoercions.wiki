@@ -92,7 +92,25 @@ Type('MyPropertyType', {
 
 Now types that use MyPropertyType in their uses can set their own someProp attribute and change the constraint but inherit the message and constraint checking code. See Joose.Type.Enum and the accompanying tests in [http://code.google.com/p/joose-js/source/browse/trunk/tests/16_types.t.js?r=442 tests/19_types.t.js] for examples of this.
 
-== Default Joose Built-in types ==
+== Declaring Types inside Modules ==
+
+When you declare a type inside a module it will be put into that module and can be accessed accordingly. For example in the next code block the type {{{MyTypes.MySmallNumber}}} is created.
+
+{{{
+Module("MyTypes", function () {
+    Type('MySmallNumber', {
+        uses: Joose.Type.Int, // this is a specilization of the Joose.Type.Int Class
+        where: function (value) {
+            if ( value > 1 && value < 5 ) { // we only accept Ints between 1 and 5
+                return true;
+            }
+            return false;
+        }       
+    });
+});
+}}}
+
+= Default Joose Built-in types =
 
 Joose comes with a set of default types that you can use as is or build you own types off of them.
 
