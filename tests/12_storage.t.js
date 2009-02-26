@@ -1,4 +1,5 @@
-(function() {
+(function (Class, Module, Role, Type, Prototype) {
+return (function () {
 var t = new Test.TAP.Class();
 t.plan(41)
 
@@ -13,7 +14,7 @@ t.testStorageRole = function() {
         self.ok(joose.top.JSON, "We have JSON")
         self.ok(JSON.parse && JSON.stringify, "It is the correct version of JSON (json2.js)")
         
-        Geometry = {};
+//        Geometry = {};
         Class("Geometry.Point", {
             does: Joose.Storage,
             has: {
@@ -148,3 +149,4 @@ t.testStorageRole = function() {
 
 return t;
 })()
+}).call(window, JooseClass, JooseModule, JooseRole, JooseType, JoosePrototype)

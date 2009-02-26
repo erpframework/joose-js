@@ -1,4 +1,5 @@
-(function () {
+(function (Class, Module, Role, Type, Prototype) {
+return (function () {
 var testobj = new Test.TAP.Class();
 testobj.plan(123)
 
@@ -105,7 +106,7 @@ testobj.testTypeConstraint = function() {
         /The passed value \[foo\] is not a BooleanTest/, 
         'setting boolean constrained to foo fails');
     constrained.setAttr1('foo', function (e, type) {
-    	self.ok(type == Joose.Type.BooleanTest, "Error handler invoked with correct type")
+        self.ok(type == Joose.Type.BooleanTest, "Error handler invoked with correct type")
     })
     
     self.throws_ok(function () { new BooleanTypeConstrained({attr1: 'foo'})}, 
@@ -407,4 +408,5 @@ testobj.testTypeConstraint = function() {
 };
 return testobj
 })()
+}).call(window, JooseClass, JooseModule, JooseRole, JooseType, JoosePrototype)
 

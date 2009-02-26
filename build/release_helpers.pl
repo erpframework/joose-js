@@ -9,13 +9,36 @@ sub exe ($);
 my $path = "$FindBin::Bin/..";
 
 my @classes = (
-	"Joose",
-	# copy this from Joose.js
-            "Joose.Builder",
-            "Joose.Class",
+	        "Joose",
+	# copy this from Joose
+            "Joose.Kernel.ProtoMeta",
+            "Joose.Kernel.Inheritable",
+            "Joose.Kernel.ProtoMethod",
+            "Joose.Kernel.ProtoAttribute",
+            "Joose.Kernel.Inheritance",
+            "Joose.Kernel.ProtoClassMethod",
+            "Joose.Kernel.ClassMethods",
+            "Joose.Kernel.Handlers",
+            "Joose.Kernel.Roles",
+            "Joose.Kernel.ProtoModule",
+            "Joose.Kernel.NamespaceKeeper",
+            
+            "Joose.Kernel.MetaClass",
+            "Joose.Kernel.ProtoRole",
+            "Joose.Kernel.MetaClass.Depended",
+            "Joose.Kernel.MetaClass.Depended.Grouped",
+#//            "Joose.Kernel.MetaClass.Depended.NonCycled",
+            "Joose.Kernel.MetaClass.Depended.Transport.ScriptTag",
+            "Joose.Kernel.MetaClass.Depended.Transport.AjaxAsync",
+            
+            "Joose.Attribute",
             "Joose.Method",
             "Joose.ClassMethod",
-            "Joose.Attribute",
+            "Joose.Class",
+            "Joose.TypeConstraint",
+            "Joose.Builder",
+            "Joose.TypeCoercion",
+            "Joose.Types",
             "Joose.Role",
             "Joose.Singleton",
             "Joose.SimpleRequest",
@@ -23,14 +46,11 @@ my @classes = (
             "Joose.Storage",
             "Joose.Storage.Unpacker",
             "Joose.Decorator",
-            "Joose.Module",
             "Joose.TypeChecker",
-            "Joose.TypeConstraint",
-            "Joose.TypeCoercion",
-            "Joose.Types",
             "Joose.Prototype",
             "Joose.TypedMethod",
-            "Joose.MultiMethod"
+            "Joose.MultiMethod",
+            "Digest.MD5"
  );
 
   my $files = [map { s{\.}{/}g; "$_.js" } @classes];

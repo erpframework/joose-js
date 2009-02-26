@@ -1,4 +1,5 @@
-(function () {
+(function (Class, Module, Role, Type, Prototype) {
+return (function () {
 var testobj = new Test.TAP.Class();
 
 testobj.plan(4)
@@ -10,12 +11,18 @@ testobj.testSanity = function() {
     me.ok(true, "Test succeeded");
     me.ok(!false, "Test failed");
     
+    window.GLOBAL = true;
+    
     if(joose.top.setTimeout) {
         setTimeout(function () {
             me.ok(true, "Asynchronous test succeeded");
             me.ok(!false, "Asynchronous test failed");
+            
+            //TODO
+            //me.ok(window.GLOBAL, "Asynchronous test succeeded");
         }, 100)
     }
 };
 return testobj
 })()
+}).call(window, JooseClass, JooseModule, JooseRole, JooseType, JoosePrototype)

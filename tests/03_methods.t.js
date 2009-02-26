@@ -1,6 +1,7 @@
-(function() {
+(function (Class, Module, Role, Type, Prototype) {
+return (function () {
 var t = new Test.TAP.Class();
-t.plan(31);
+t.plan(30);
     
 t.testMethodMetaClass = function() {
     var self = this;
@@ -30,7 +31,7 @@ t.testMethodMetaClass = function() {
     self.ok(o.identity2(1, 2) == 2, "We can call methods with two parameters");
     
     var m = o.meta.getMethodObject("one")
-    self.ok(m, "Mthod has meta object")
+//    self.ok(m, "Method has meta object")
     self.is(m.getName(), "one", "name is correct")
     self.ok(!m.isFromSuperClass(), "method is not from super classs")
     
@@ -45,7 +46,7 @@ t.testMethodMetaClass = function() {
     self.ok(!Subclass.meta.getMethodObject("two").isFromSuperClass(), "New method is not from super class")
     self.ok( Subclass.meta.getMethodObject("one").isFromSuperClass(), "Inherited method is from super class")
     
-    self.ok(m.meta.isa(Joose.Method), "Methods of Joose.Classes are Joose.Methods")
+    self.ok(m.meta.isa(Joose.Kernel.ProtoMethod), "Methods of Joose.Classes are Joose.Kernel.ProtoMethods")
     
     Class("MoreMethods", {
         methods: {
@@ -97,4 +98,5 @@ t.testMethodMetaClass = function() {
 };
 
 return t;
-})();
+})()
+}).call(window, JooseClass, JooseModule, JooseRole, JooseType, JoosePrototype);
