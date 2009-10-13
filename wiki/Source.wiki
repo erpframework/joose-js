@@ -1,3 +1,3 @@
 #summary Joose's source code
 
-[http://github.com/Joose/Joose The Joose source code is hosted on GitHub]
+[http://github.com/Joose/Joose The Joose source code is hosted on GitHub. Forks and contributions very welcome.]
