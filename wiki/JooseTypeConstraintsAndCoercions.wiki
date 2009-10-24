@@ -39,7 +39,7 @@ Type('MySmallNumber', {
         return false;
     },
     coerce: [{  // optional coercion definition list
-                from: TYPE.Str, // coercion from string to number
+                from: Joose.Type.Str, // coercion from string to number
                 via: function(str) {
                     return new Number(Str); // perform our coercion
                 }
