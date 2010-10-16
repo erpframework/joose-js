@@ -34,7 +34,7 @@ Roles are units of reusable behavior. You can also think of them as Java-interfa
 
 For more info see CookbookRecipe6.
 
-== requires: methodName or Array of methodNames ==
+== requires: methodName or [https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array Array] of methodNames ==
 
 Using the requires-keyword you declare that classes and roles that implement this role, need to provide methods named _methodName_. By passing an array of _methodNames_ to the keyword you can require multiple method names.
 {{{
