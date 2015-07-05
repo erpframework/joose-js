@@ -1,0 +1,1 @@
+[The Joose source code is hosted on GitHub. Forks and contributions very welcome.](http://github.com/Joose/Joose)

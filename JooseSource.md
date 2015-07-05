@@ -1,0 +1,1 @@
+This page is no longer needed. Goto [standard source page](http://code.google.com/p/joose-js/source/checkout)
